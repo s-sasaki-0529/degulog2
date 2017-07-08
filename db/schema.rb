@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170708125157) do
 
   create_table "weights", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "degu_id"
-    t.datetime "datetime"
+    t.date "date"
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
