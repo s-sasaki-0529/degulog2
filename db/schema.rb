@@ -14,10 +14,10 @@ ActiveRecord::Schema.define(version: 20170708125157) do
 
   create_table "degus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.boolean "is_make", null: false
+    t.boolean "is_male", null: false
     t.date "birthday", null: false
-    t.date "comeDate"
-    t.date "diedDate", null: false
+    t.date "comeDate", null: false
+    t.date "diedDate"
     t.text "comment"
     t.bigint "picture_id"
     t.datetime "created_at", null: false
