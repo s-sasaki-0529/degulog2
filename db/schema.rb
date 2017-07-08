@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170708125157) do
     t.string "name", null: false
     t.boolean "is_male", null: false
     t.date "birthday", null: false
-    t.date "comeDate", null: false
-    t.date "diedDate"
+    t.date "come_date", null: false
+    t.date "died_date"
     t.text "comment"
     t.bigint "picture_id"
     t.datetime "created_at", null: false
