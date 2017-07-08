@@ -17,6 +17,6 @@
 /yarn-error.log
 
 .byebug_history
-.swp
+*.swp
 
 /vendor
