@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  degu: one
+  datetime: 2017-07-08 12:51:57
+  value: 1
+
+two:
+  degu: two
+  datetime: 2017-07-08 12:51:57
+  value: 1
