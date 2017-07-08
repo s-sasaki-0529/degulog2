@@ -3,13 +3,13 @@ class Api::DegusController < Api::ApplicationController
   # デグーの一覧を取得
   #------------------------------------
   def index
-    render json: Degu.all
+    render json: Degu.all, each_serializer: Api::DeguSerializer
   end
 
   # デグーの詳細を取得
   #------------------------------------
   def show
-    render json: Degu.find(params['id'])
+    render json: Degu.find(params['id']), serializer: Api::DeguSerializer
   end
 
   # デグーを新規作成
