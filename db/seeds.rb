@@ -3,6 +3,9 @@ Degu.create(name: 'パズー', is_male: true,  birthday: '2015-12-01', come_date
 Degu.create(name: 'メイ',   is_male: false, birthday: '2016-02-01', come_date: '2016-05-07')
 Degu.create(name: 'ジジ',   is_male: true,  birthday: '2016-09-01', come_date: '2017-05-03')
 Degu.create(name: 'キキ',   is_male: false, birthday: '2016-02-01', come_date: '2017-05-03', died_date: '2017-06-13')
+Degu.create(name: 'ハク',   is_male: true,  birthday: '2017-06-01', come_date: '2017-07-09')
+Degu.create(name: 'セン',   is_male: false, birthday: '2017-06-01', come_date: '2017-07-09')
+Degu.create(name: 'チヒロ', is_male: false, birthday: '2017-06-01', come_date: '2017-07-09')
 
 # 体重の初期データを作成
 Degu.find_by(name: 'パズー').weights.create([
@@ -37,6 +40,8 @@ Degu.find_by(name: 'パズー').weights.create([
   { date: "2017/06/03", value: 204 },
   { date: "2017/06/18", value: 230 },
   { date: "2017/06/25", value: 236 },
+  { date: "2017/07/02", value: 230 },
+  { date: "2017/07/09", value: 229 },
 ])
 Degu.find_by(name: 'メイ').weights.create([
   { date: "2017/02/04", value: 227 },
@@ -70,6 +75,8 @@ Degu.find_by(name: 'メイ').weights.create([
   { date: "2017/06/03", value: 211 },
   { date: "2017/06/18", value: 242 },
   { date: "2017/06/25", value: 245 },
+  { date: "2017/07/02", value: 255 },
+  { date: "2017/07/09", value: 264 },
 ])
 Degu.find_by(name: 'ジジ').weights.create([
   { date: "2017/05/05", value: 154 },
@@ -79,6 +86,8 @@ Degu.find_by(name: 'ジジ').weights.create([
   { date: "2017/06/03", value: 148 },
   { date: "2017/06/18", value: 218 },
   { date: "2017/06/25", value: 195 },
+  { date: "2017/07/02", value: 193 },
+  { date: "2017/07/09", value: 200 },
 ])
 Degu.find_by(name: 'キキ').weights.create([
   { date: "2017/05/05", value: 197 },
@@ -86,4 +95,13 @@ Degu.find_by(name: 'キキ').weights.create([
   { date: "2017/05/20", value: 183 },
   { date: "2017/05/27", value: 180 },
   { date: "2017/06/03", value: 180 },
+])
+Degu.find_by(name: 'ハク').weights.create([
+  { date: "2017/07/09", value: 85 },
+])
+Degu.find_by(name: 'セン').weights.create([
+  { date: "2017/07/09", value: 99 },
+])
+Degu.find_by(name: 'チヒロ').weights.create([
+  { date: "2017/07/09", value: 109 },
 ])
