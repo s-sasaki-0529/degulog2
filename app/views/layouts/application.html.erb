@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width,initial-scales=1">
     <title>Degulog</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css' %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %>
     <%= javascript_include_tag 'https://unpkg.com/vue' %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' %>
   </head>
 
   <body>
-    <%= yield %>
+    <!-- ヘッダーメニューここから -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">でぐろぐ</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarEexample">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'でぐーず', '/degus' %></li>
+            <li><%= link_to '体重管理', '/weights' %></li>
+            <li><%= link_to 'Twitter' , '/tweets' %></li>
+            <li><%= link_to '購入履歴', '/boughts' %><li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'ログイン', '/login' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ヘッダーメニューここまで　-->
   </body>
 </html>
