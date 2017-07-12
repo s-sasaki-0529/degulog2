@@ -1,1 +1,24 @@
-h1 でぐろぐ
+#degus
+  h1 でぐろぐ
+  table.table
+    thead
+      tr
+        th 名前
+        th 性別
+        th 年齢
+    tbody
+      tr v-for="degu in degus"
+        td = "{{degu.name}}"
+        td = "{{degu.sex}}"
+        td = "{{degu.age}}"
+
+javascript:
+  const vm = new Vue({
+    el: '#degus',
+    data: {
+      degus: [
+      ],
+    },
+    methods: {
+    }
+  });
