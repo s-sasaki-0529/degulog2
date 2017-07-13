@@ -6,7 +6,6 @@ html
     title Degulog
     = csrf_meta_tags
     = stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
-    = javascript_include_tag 'https://unpkg.com/vue'
     = javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js'
     = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
   body
@@ -26,3 +25,4 @@ html
             li= link_to 'ログイン', '/login'
     / ヘッダーメニューここまで
     = yield
+    = javascript_include_tag 'application'
