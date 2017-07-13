@@ -20,3 +20,5 @@
 *.swp
 
 /vendor
+
+app/assets/*
