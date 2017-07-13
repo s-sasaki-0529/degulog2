@@ -1,5 +1,10 @@
 {
   "name": "degulog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "vue": "^2.4.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.2.0"
+  }
 }
