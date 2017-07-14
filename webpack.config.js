@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/app/javascript/degus.js',
+  entry: __dirname + '/app/javascript/main.js',
   output: {
     path: __dirname + '/app/assets/javascripts',
     filename: 'application.js',
