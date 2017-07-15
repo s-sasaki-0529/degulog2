@@ -4,7 +4,6 @@ import http       from './http';
 Vue.use(VueRouter);
 
 // ページごとのコンポーネントを定義
-const Top     = { template: '<div>Top</div>' };
 const Degus   = { template: '<div>Degus</div>' };
 const Weights = { template: '<div>Weights</div>' };
 const Boughts = { template: '<div>Boughts</div>' };
@@ -12,11 +11,11 @@ const Tweets  = { template: '<div>Tweets</div>' };
 
 // URLに対応するコンポーネントを定義
 const routes = [
-  { path: '/',        component: Top   },
-  { path: '/degus',   component: Degus },
-  { path: '/weights', component: Weights },
-  { path: '/boughts', component: Boughts },
-  { path: '/tweets',  component: Tweets },
+  { path: '/',        component: Vue.extend(require('./top.vue')) },
+  { path: '/degus',   component: Vue.extend(require('./degus.vue')) },
+  { path: '/weights', component: Vue.extend(require('./weights.vue')) },
+  { path: '/boughts', component: Vue.extend(require('./boughts.vue')) },
+  { path: '/tweets',  component: Vue.extend(require('./tweets.vue')) },
 ];
 
 // ページ全体をVueコンポーネント化

@@ -2,13 +2,16 @@
   "name": "degulog",
   "private": true,
   "dependencies": {
+    "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "css-loader": "^0.28.4",
     "eslint-loader": "^1.9.0",
     "style-loader": "^0.18.2",
     "superagent": "^3.5.2",
     "vue": "^2.4.1",
-    "vue-router": "^2.7.0"
+    "vue-loader": "^12.2.2",
+    "vue-router": "^2.7.0",
+    "vue-template-compiler": "^2.4.1"
   },
   "devDependencies": {
     "webpack": "^3.2.0"

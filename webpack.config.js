@@ -6,6 +6,12 @@ module.exports = {
     path: __dirname + '/app/assets/javascripts',
     filename: 'application.js',
   },
+  module: {
+    // .vueファイルを変換
+    loaders: [
+      { test: /\.vue$/, loader: 'vue-loader' },
+    ],
+  },
   // vuejsを事前にコンパイル(?)
   resolve: {
     alias: {
