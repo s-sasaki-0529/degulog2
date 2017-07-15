@@ -9,20 +9,22 @@ html
     = javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js'
     = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
   body
-    / ヘッダーメニューここから
-    nav.navbar.navbar-default
-      .container-fluid
-        .navbar-header
-          a.navbar-brand href="/"  でぐろぐ
-        #navbarEexample.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li= link_to 'でぐーず', '/degus'
-            li= link_to '体重管理', '/weights'
-            li= link_to 'Twitter' , '/tweets'
-            li= link_to '購入履歴', '/boughts'
-            li
-          ul.nav.navbar-nav.navbar-right
-            li= link_to 'ログイン', '/login'
-    / ヘッダーメニューここまで
-    = yield
+    #app
+      nav.navbar.navbar-default
+        .container-fluid
+          .navbar-header
+            a.navbar-brand href="/"  でぐろぐ
+          #navbarEexample.collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li
+                router-link to='/degus' でぐーず
+              li
+                router-link to='/weights' 体重管理
+              li
+                router-link to='/boughts' 購入履歴
+              li
+                router-link to='/tweets' Twitter
+            ul.nav.navbar-nav.navbar-right
+              li= link_to 'ログイン', '/login'
+      router-view
     = javascript_include_tag 'application'
