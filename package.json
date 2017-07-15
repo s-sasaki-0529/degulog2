@@ -2,6 +2,10 @@
   "name": "degulog",
   "private": true,
   "dependencies": {
+    "babel-loader": "^7.1.1",
+    "css-loader": "^0.28.4",
+    "eslint-loader": "^1.9.0",
+    "style-loader": "^0.18.2",
     "superagent": "^3.5.2",
     "vue": "^2.4.1"
   },
