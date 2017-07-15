@@ -1,6 +1,3 @@
-import http  from './http';
-import degus from './degus';
-
-http.getDegs((err, data) => {
-  degus.degus = data.body;
-});
+import vue        from 'vue';
+import vueRouter  from 'vue-router';
+import http       from './http';
