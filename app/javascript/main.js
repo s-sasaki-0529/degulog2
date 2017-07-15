@@ -11,8 +11,7 @@ const Tweets  = { template: '<div>Tweets</div>' };
 
 // URLに対応するコンポーネントを定義
 const routes = [
-  { path: '/',        component: Vue.extend(require('./top.vue')) },
-  { path: '/degus',   component: Vue.extend(require('./degus.vue')) },
+  { path: '/',        component: Vue.extend(require('./degus.vue')) },
   { path: '/weights', component: Vue.extend(require('./weights.vue')) },
   { path: '/boughts', component: Vue.extend(require('./boughts.vue')) },
   { path: '/tweets',  component: Vue.extend(require('./tweets.vue')) },

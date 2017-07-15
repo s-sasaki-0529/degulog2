@@ -6,7 +6,7 @@
   module.exports = {
     data: function () {
       return {
-        msg: 'TOPページ',
+        msg: 'でぐー',
       }
     },
   }
