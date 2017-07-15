@@ -6,6 +6,7 @@
       <th>名前</th>
       <th>性別</th>
       <th>年齢</th>
+      <th>体重</th>
       <th>お迎え日</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <td>{{ degu.name }}</td>
       <td>{{ degu.sex  }}</td>
       <td>{{ degu.age  }}</td>
+      <td>{{ degu.weight }}g</td>
       <td>{{ degu.come_date }}</td>
     </tr>
   </tbody>
