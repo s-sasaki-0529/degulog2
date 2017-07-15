@@ -1,3 +1,19 @@
+// ナビゲーションバーを最上部に固定するためのパディング
 body {
   padding-top: 70px;
+}
+
+// ナビゲーションバーレスポンシブ時に、ハンバーガーを使用しない
+.nav {
+  li {
+    float: left;
+    display: inline-block;
+  }
+}
+.navbar-nav {
+  margin: 0;
+  li > a {
+    padding-top: 14.5px;
+    padding-bottom: 14.5px;
+  }
 }
