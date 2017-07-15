@@ -1,20 +1,20 @@
 import Vue        from 'vue';
 import VueRouter  from 'vue-router';
-import http       from './http';
+import http       from './common/http';
 Vue.use(VueRouter);
 
 // ページごとのコンポーネントを定義
-const Degus   = { template: '<div>Degus</div>' };
-const Weights = { template: '<div>Weights</div>' };
-const Boughts = { template: '<div>Boughts</div>' };
-const Tweets  = { template: '<div>Tweets</div>' };
+const degus   = Vue.extend(require('./degus.vue'));
+const weights = Vue.extend(require('./weights.vue'));
+const boughts = Vue.extend(require('./boughts.vue'));
+const tweets  = Vue.extend(require('./tweets.vue'));
 
 // URLに対応するコンポーネントを定義
 const routes = [
-  { path: '/',        component: Vue.extend(require('./degus.vue')) },
-  { path: '/weights', component: Vue.extend(require('./weights.vue')) },
-  { path: '/boughts', component: Vue.extend(require('./boughts.vue')) },
-  { path: '/tweets',  component: Vue.extend(require('./tweets.vue')) },
+  { path: '/',        component: degus },
+  { path: '/weights', component: weights },
+  { path: '/boughts', component: boughts },
+  { path: '/tweets',  component: tweets },
 ];
 
 // ページ全体をVueコンポーネント化
