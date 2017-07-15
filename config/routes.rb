@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => 'home#index'
-  get 'home' => 'home#index'
+  get '/' => 'home#index'
 
   # API
   namespace :api, defaults: { format: :json } do
