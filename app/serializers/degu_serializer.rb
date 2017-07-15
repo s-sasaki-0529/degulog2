@@ -11,9 +11,10 @@ class Api::DeguSerializer < ActiveModel::Serializer
     object.is_male ? 'オス' : 'メス'
   end
 
-  # 年齢
+  # 年齢(or享年)
   def age
-    days = (Date.today - object.birthday).to_i
+    date = is_alive ? Date.today : object.died_date
+    days = (date - object.birthday).to_i
     year = days / 356
     month = (days % 365) / 30
     %(#{year}歳#{month}ヶ月)
