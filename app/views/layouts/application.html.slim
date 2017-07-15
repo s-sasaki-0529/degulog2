@@ -10,11 +10,11 @@ html
     = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
   body
     #app
-      nav.navbar.navbar-default
+      nav.navbar.navbar-default.navbar-fixed-top
         .container-fluid
           .navbar-header
             a.navbar-brand href="/#"  でぐろぐ
-          #navbarEexample.collapse.navbar-collapse
+          #navbarEexample.navbar-collapse
             ul.nav.navbar-nav
               li
                 router-link to='/weights' 体重管理
@@ -22,7 +22,17 @@ html
                 router-link to='/boughts' 購入履歴
               li
                 router-link to='/tweets' Twitter
-            ul.nav.navbar-nav.navbar-right
-              li= link_to 'ログイン', '/login'
       router-view
     = javascript_include_tag 'application'
+
+sass:
+  body
+    padding-top: 70px
+  .nav>li
+    float: left
+    display: inline-block
+  .navbar-nav
+    margin: 0
+  .navbar-nav>li>a
+    padding-top: 14.5px
+    padding-bottom: 14.5px
