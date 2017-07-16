@@ -40,7 +40,7 @@
 
   <!-- 体重遷移グラフ -->
   <div class="graf" v-show="selected_tab === 'graf'">
-    体重遷移グラフ(仮)
+    <div id="graf"></div>
   </div>
 
 </div>
@@ -49,10 +49,11 @@
 
 <script>
   import http from './common/http';
+  import c3   from 'c3';
   export default {
     data: function () {
       return {
-        selected_tab: 'history',
+        selected_tab: 'graf',
         degus:        [],
         measurements: [],
       };
@@ -61,6 +62,37 @@
       // タブを切り替える
       changeTab(new_tab) {
         this.selected_tab = new_tab;
+      },
+      // 体重遷移グラフを描画する
+      // degusのidが連番であることが前提
+      makeGraf() {
+        let date = ['date'], degus = [];
+        this.degus.forEach((degu) => {
+          degus.push([degu.name]);
+        });
+        this.measurements.forEach((m) => {
+          date.push(m.date);
+          for (let i = 0; i < this.degus.length; i++) {
+            degus[i].push(m.weights[String(i + 1)] || null);
+          }
+        });
+        c3.generate({
+          bindto: '#graf',
+          data: {
+            x: 'date',
+            xFormat: '%Y/%m/%d',
+            columns: [date , ...degus]
+          },
+          axis: {
+            x: {
+              show: true,
+              type: 'timeseries',
+              tick: {
+                format: '%y/%m/%d'
+              }
+            }
+          },
+        });
       },
       // デグー一覧をAPIで取得
       getDegus() {
@@ -78,6 +110,9 @@
     created: function() {
       this.getDegus();
       this.getMeasurements();
+    },
+    updated: function() {
+      this.makeGraf();
     },
   }
 </script>
