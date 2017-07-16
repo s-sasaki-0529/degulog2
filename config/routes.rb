@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # API
   namespace :api, defaults: { format: :json } do
     resources :degus, only: [:index, :show, :create, :update, :destroy]
-    resources :weights, only: [:index, :create, :update, :destroy]
+    resources :measurements, only: [:index, :create, :update, :destroy]
   end
 end
