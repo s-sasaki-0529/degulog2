@@ -1,5 +1,5 @@
 class DeguSerializer < ActiveModel::Serializer
-  attributes :id, :name, :sex, :birthday, :come_date, :died_date, :is_alive, :age, :weight
+  attributes :id, :name, :sex, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight
 
   # 生存中か
   def is_alive
@@ -27,12 +27,6 @@ class DeguSerializer < ActiveModel::Serializer
     else
       %(#{year}歳#{month}ヶ月)
     end
-  end
-
-  # 現在の体重
-  def weight
-    0
-    #object.weights.order(date: :desc).first.value
   end
 
 end
