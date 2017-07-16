@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716093236) do
+ActiveRecord::Schema.define(version: 20170716100809) do
 
   create_table "degus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20170716093236) do
     t.index ["picture_id"], name: "index_degus_on_picture_id"
   end
 
-  create_table "measurments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "date"
+  create_table "measurements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,12 +51,12 @@ ActiveRecord::Schema.define(version: 20170716093236) do
 
   create_table "weights", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "degu_id"
-    t.bigint "measurment_id"
+    t.bigint "measurement_id"
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["degu_id"], name: "index_weights_on_degu_id"
-    t.index ["measurment_id"], name: "index_weights_on_measurment_id"
+    t.index ["measurement_id"], name: "index_weights_on_measurement_id"
   end
 
   add_foreign_key "pictures", "tweets"

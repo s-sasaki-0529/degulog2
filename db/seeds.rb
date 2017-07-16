@@ -8,102 +8,165 @@ Degu.create(name: 'セン',   is_male: false, birthday: '2017-06-01', come_date:
 Degu.create(name: 'チヒロ', is_male: false, birthday: '2017-06-01', come_date: '2017-07-09')
 
 # 体重の初期データを作成
-=begin
-Degu.find_by(name: 'パズー').weights.create([
-  { date: "2017/02/04", value: 218 },
-  { date: "2017/01/27", value: 190 },
-  { date: "2017/01/21", value: 213 },
-  { date: "2017/01/13", value: 208 },
-  { date: "2017/01/06", value: 214 },
-  { date: "2016/12/22", value: 208 },
-  { date: "2016/12/10", value: 207 },
-  { date: "2016/12/04", value: 210 },
-  { date: "2016/11/19", value: 209 },
-  { date: "2016/10/14", value: 216 },
-  { date: "2016/10/08", value: 224 },
-  { date: "2016/09/28", value: 216 },
-  { date: "2016/09/23", value: 217 },
-  { date: "2017/02/11", value: 189 },
-  { date: "2017/02/18", value: 203 },
-  { date: "2017/02/25", value: 205 },
-  { date: "2017/03/04", value: 209 },
-  { date: "2017/03/12", value: 180 },
-  { date: "2017/03/17", value: 204 },
-  { date: "2017/03/25", value: 196 },
-  { date: "2017/04/02", value: 201 },
-  { date: "2017/04/09", value: 189 },
-  { date: "2017/04/23", value: 190 },
-  { date: "2017/04/30", value: 196 },
-  { date: "2017/05/05", value: 202 },
-  { date: "2017/05/15", value: 201 },
-  { date: "2017/05/20", value: 202 },
-  { date: "2017/05/27", value: 202 },
-  { date: "2017/06/03", value: 204 },
-  { date: "2017/06/18", value: 230 },
-  { date: "2017/06/25", value: 236 },
-  { date: "2017/07/02", value: 230 },
-  { date: "2017/07/09", value: 229 },
+pazoo = Degu.find_by(name: 'パズー')
+may   = Degu.find_by(name: 'メイ')
+kiki  = Degu.find_by(name: 'キキ')
+jiji  = Degu.find_by(name: 'ジジ')
+haku  = Degu.find_by(name: 'ハク')
+sen   = Degu.find_by(name: 'セン')
+tihiro= Degu.find_by(name: 'チヒロ')
+
+Measurement.create(date: '2016-09-23').weights.create([
+  {degu: pazoo, value: 217},
+  {degu: may,   value: 207},
 ])
-Degu.find_by(name: 'メイ').weights.create([
-  { date: "2017/02/04", value: 227 },
-  { date: "2017/01/27", value: 193 },
-  { date: "2017/01/21", value: 219 },
-  { date: "2017/01/13", value: 206 },
-  { date: "2017/01/06", value: 220 },
-  { date: "2016/12/22", value: 228 },
-  { date: "2016/12/10", value: 219 },
-  { date: "2016/12/04", value: 220 },
-  { date: "2016/11/19", value: 222 },
-  { date: "2016/10/14", value: 204 },
-  { date: "2016/10/08", value: 198 },
-  { date: "2016/09/28", value: 201 },
-  { date: "2016/09/23", value: 207 },
-  { date: "2017/02/11", value: 190 },
-  { date: "2017/02/18", value: 208 },
-  { date: "2017/02/25", value: 212 },
-  { date: "2017/03/04", value: 216 },
-  { date: "2017/03/12", value: 188 },
-  { date: "2017/03/17", value: 217 },
-  { date: "2017/03/25", value: 206 },
-  { date: "2017/04/02", value: 213 },
-  { date: "2017/04/09", value: 208 },
-  { date: "2017/04/23", value: 200 },
-  { date: "2017/04/30", value: 208 },
-  { date: "2017/05/05", value: 207 },
-  { date: "2017/05/15", value: 213 },
-  { date: "2017/05/20", value: 203 },
-  { date: "2017/05/27", value: 201 },
-  { date: "2017/06/03", value: 211 },
-  { date: "2017/06/18", value: 242 },
-  { date: "2017/06/25", value: 245 },
-  { date: "2017/07/02", value: 255 },
-  { date: "2017/07/09", value: 264 },
+Measurement.create(date: '2016-09-28').weights.create([
+  {degu: pazoo, value: 216},
+  {degu: may,   value: 201},
 ])
-Degu.find_by(name: 'ジジ').weights.create([
-  { date: "2017/05/05", value: 154 },
-  { date: "2017/05/15", value: 156 },
-  { date: "2017/05/20", value: 150 },
-  { date: "2017/05/27", value: 144 },
-  { date: "2017/06/03", value: 148 },
-  { date: "2017/06/18", value: 218 },
-  { date: "2017/06/25", value: 195 },
-  { date: "2017/07/02", value: 193 },
-  { date: "2017/07/09", value: 200 },
+Measurement.create(date: '2016-10-08').weights.create([
+  {degu: pazoo, value: 224},
+  {degu: may,   value: 198},
 ])
-Degu.find_by(name: 'キキ').weights.create([
-  { date: "2017/05/05", value: 197 },
-  { date: "2017/05/15", value: 190 },
-  { date: "2017/05/20", value: 183 },
-  { date: "2017/05/27", value: 180 },
-  { date: "2017/06/03", value: 180 },
+Measurement.create(date: '2016-10-14').weights.create([
+  {degu: pazoo, value: 216},
+  {degu: may,   value: 204},
 ])
-Degu.find_by(name: 'ハク').weights.create([
-  { date: "2017/07/09", value: 85 },
+Measurement.create(date: '2016-10-22').weights.create([
+  {degu: may,   value: 200},
 ])
-Degu.find_by(name: 'セン').weights.create([
-  { date: "2017/07/09", value: 99 },
+Measurement.create(date: '2016-11-19').weights.create([
+  {degu: pazoo, value: 209},
+  {degu: may,   value: 222},
 ])
-Degu.find_by(name: 'チヒロ').weights.create([
-  { date: "2017/07/09", value: 109 },
+Measurement.create(date: '2016-11-25').weights.create([
+  {degu: may,   value: 215},
 ])
-=end
+Measurement.create(date: '2016-12-04').weights.create([
+  {degu: pazoo, value: 210},
+  {degu: may,   value: 220},
+])
+Measurement.create(date: '2016-12-10').weights.create([
+  {degu: pazoo, value: 207},
+  {degu: may,   value: 219},
+])
+Measurement.create(date: '2016-12-22').weights.create([
+  {degu: pazoo, value: 208},
+  {degu: may,   value: 228},
+])
+Measurement.create(date: '2017-01-06').weights.create([
+  {degu: pazoo, value: 214},
+  {degu: may,   value: 220},
+])
+Measurement.create(date: '2017-01-13').weights.create([
+  {degu: pazoo, value: 208},
+  {degu: may,   value: 206},
+])
+Measurement.create(date: '2017-01-21').weights.create([
+  {degu: pazoo, value: 213},
+  {degu: may,   value: 219},
+])
+Measurement.create(date: '2017-01-27').weights.create([
+  {degu: pazoo, value: 190},
+  {degu: may,   value: 193},
+])
+Measurement.create(date: '2017-02-04').weights.create([
+  {degu: pazoo, value: 218},
+  {degu: may,   value: 227},
+])
+Measurement.create(date: '2017-02-11').weights.create([
+  {degu: pazoo, value: 189},
+  {degu: may,   value: 190},
+])
+Measurement.create(date: '2017-02-18').weights.create([
+  {degu: pazoo, value: 203},
+  {degu: may,   value: 208},
+])
+Measurement.create(date: '2017-02-25').weights.create([
+  {degu: pazoo, value: 205},
+  {degu: may,   value: 212},
+])
+Measurement.create(date: '2017-03-04').weights.create([
+  {degu: pazoo, value: 209},
+  {degu: may,   value: 216},
+])
+Measurement.create(date: '2017-03-12').weights.create([
+  {degu: pazoo, value: 180},
+  {degu: may,   value: 188},
+])
+Measurement.create(date: '2017-03-17').weights.create([
+  {degu: pazoo, value: 217},
+  {degu: may,   value: 204},
+])
+Measurement.create(date: '2017-03-25').weights.create([
+  {degu: pazoo, value: 196},
+  {degu: may,   value: 206},
+])
+Measurement.create(date: '2017-04-02').weights.create([
+  {degu: pazoo, value: 201},
+  {degu: may,   value: 213},
+])
+Measurement.create(date: '2017-04-09').weights.create([
+  {degu: pazoo, value: 189},
+  {degu: may,   value: 208},
+])
+Measurement.create(date: '2017-04-23').weights.create([
+  {degu: pazoo, value: 190},
+  {degu: may,   value: 200},
+])
+Measurement.create(date: '2017-04-30').weights.create([
+  {degu: pazoo, value: 196},
+  {degu: may,   value: 208},
+])
+Measurement.create(date: '2017-05-05').weights.create([
+  {degu: pazoo, value: 202},
+  {degu: may,   value: 207},
+  {degu: kiki,  value: 197},
+  {degu: jiji,  value: 154},
+])
+Measurement.create(date: '2017-05-15').weights.create([
+  {degu: pazoo, value: 201},
+  {degu: may,   value: 213},
+  {degu: kiki,  value: 190},
+  {degu: jiji,  value: 156},
+])
+Measurement.create(date: '2017-05-20').weights.create([
+  {degu: pazoo, value: 202},
+  {degu: may,   value: 203},
+  {degu: kiki,  value: 183},
+  {degu: jiji,  value: 150},
+])
+Measurement.create(date: '2017-05-27').weights.create([
+  {degu: pazoo, value: 202},
+  {degu: may,   value: 201},
+  {degu: kiki,  value: 180},
+  {degu: jiji,  value: 144},
+])
+Measurement.create(date: '2017-06-03').weights.create([
+  {degu: pazoo, value: 204},
+  {degu: may,   value: 211},
+  {degu: kiki,  value: 180},
+  {degu: jiji,  value: 148},
+])
+Measurement.create(date: '2017-06-18').weights.create([
+  {degu: pazoo, value: 230},
+  {degu: may,   value: 242},
+])
+Measurement.create(date: '2017-06-25').weights.create([
+  {degu: pazoo, value: 236},
+  {degu: may,   value: 245},
+  {degu: jiji,  value: 195},
+])
+Measurement.create(date: '2017-07-02').weights.create([
+  {degu: pazoo, value: 230},
+  {degu: may,   value: 255},
+  {degu: jiji,  value: 193},
+])
+Measurement.create(date: '2017-07-09').weights.create([
+  {degu: pazoo, value: 229},
+  {degu: may,   value: 264},
+  {degu: jiji,  value: 200},
+  {degu: tihiro, value: 109},
+  {degu: sen,    value: 99},
+  {degu: haku,   value: 85}
+])
