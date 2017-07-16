@@ -8,6 +8,7 @@ Degu.create(name: 'セン',   is_male: false, birthday: '2017-06-01', come_date:
 Degu.create(name: 'チヒロ', is_male: false, birthday: '2017-06-01', come_date: '2017-07-09')
 
 # 体重の初期データを作成
+=begin
 Degu.find_by(name: 'パズー').weights.create([
   { date: "2017/02/04", value: 218 },
   { date: "2017/01/27", value: 190 },
@@ -105,3 +106,4 @@ Degu.find_by(name: 'セン').weights.create([
 Degu.find_by(name: 'チヒロ').weights.create([
   { date: "2017/07/09", value: 109 },
 ])
+=end

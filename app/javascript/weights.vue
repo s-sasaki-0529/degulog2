@@ -1,13 +1,43 @@
 <template>
-  <h1>{{ msg }}</h1>
+
+<div class="weights">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>測定日</th>
+        <th>体重</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="weight in weights">
+        <td>{{ weight.degu_name }}</td>
+        <td>{{ weight.date }}</td>
+        <td>{{ weight.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </template>
 
 <script>
-  module.exports = {
+  import http from './common/http';
+  export default {
     data: function () {
       return {
-        msg: '体重管理',
-      }
+        weights: [],
+      };
+    },
+    methods: {
+      getWeights() {
+        http.getWeights((err, data) => {
+          this.weights = data.body;
+        });
+      },
+    },
+    created: function() {
+      this.getWeights();
     },
   }
 </script>
