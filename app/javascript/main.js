@@ -4,15 +4,15 @@ import http       from './common/http';
 Vue.use(VueRouter);
 
 // ページごとのコンポーネントを定義
-const degus   = Vue.extend(require('./degus.vue'));
-const weights = Vue.extend(require('./weights.vue'));
-const boughts = Vue.extend(require('./boughts.vue'));
-const tweets  = Vue.extend(require('./tweets.vue'));
+const degus        = Vue.extend(require('./degus.vue'));
+const measurements = Vue.extend(require('./measurements.vue'));
+const boughts      = Vue.extend(require('./boughts.vue'));
+const tweets       = Vue.extend(require('./tweets.vue'));
 
 // URLに対応するコンポーネントを定義
 const routes = [
   { path: '/',        component: degus },
-  { path: '/weights', component: weights },
+  { path: '/measurements', component: measurements },
   { path: '/boughts', component: boughts },
   { path: '/tweets',  component: tweets },
 ];

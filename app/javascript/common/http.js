@@ -7,8 +7,8 @@ const http = {
     request.get(API_BASE + '/degus').end(callback);
   },
   // 体重記録一覧を取得
-  getWeights(callback) {
-    request.get(API_BASE + '/weights').end(callback);
+  getMeasurements(callback) {
+    request.get(API_BASE + '/measurements').end(callback);
   },
 };
 export default http;
