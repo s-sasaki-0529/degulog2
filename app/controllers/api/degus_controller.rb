@@ -3,7 +3,8 @@ class Api::DegusController < Api::ApplicationController
   # デグーの一覧を取得
   #------------------------------------
   def index
-    render json: Degu.order(:died_date)
+    order = params[:order] || 'id'
+    render json: Degu.order(order)
   end
 
   # デグーの詳細を取得
