@@ -1,6 +1,11 @@
 // ナビゲーションバーを最上部に固定するためのパディング
 body {
-  padding-top: 70px;
+  @media #{$pc} {
+    padding-top: 70px;
+  }
+  @media #{$mobile} {
+    padding-top: 140px;
+  }
 }
 
 // ナビゲーションバーレスポンシブ時に、ハンバーガーを使用しない
