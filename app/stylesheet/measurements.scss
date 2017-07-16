@@ -1,9 +1,18 @@
 .measurements {
-  table * {
-    text-align: center;
+  // タブ
+  .nav {
+    a {
+      cursor: pointer;
+    }
   }
-  .measurement-date {
-    white-space: nowrap;
-    width: 20px;
+  // 体重記録一覧
+  .history {
+    table * {
+      text-align: center;
+    }
+    .measurement-date {
+      white-space: nowrap;
+      width: 20px;
+    }
   }
 }
