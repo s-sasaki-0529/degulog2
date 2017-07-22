@@ -10,5 +10,9 @@ const http = {
   getMeasurements(callback) {
     request.get(API_BASE + '/measurements').end(callback);
   },
+  // 購入記録一覧を取得
+  getBoughts(callback) {
+    request.get(API_BASE + '/boughts').end(callback);
+  },
 };
 export default http;

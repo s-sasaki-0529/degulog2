@@ -7,6 +7,9 @@ Degu.create(name: 'ハク',   is_male: true,  birthday: '2017/06/01', come_date:
 Degu.create(name: 'セン',   is_male: false, birthday: '2017/06/01', come_date: '2017/07/09')
 Degu.create(name: 'チヒロ', is_male: false, birthday: '2017/06/01', come_date: '2017/07/09')
 
+# 購入履歴をAPIから持ってくる
+Bought.synchronize
+
 # 体重の初期データを作成
 pazoo = Degu.find_by(name: 'パズー')
 may   = Degu.find_by(name: 'メイ')
