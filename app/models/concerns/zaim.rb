@@ -4,6 +4,7 @@ require 'pp'
 class Zaim
 
   API_URL = 'https://api.zaim.net/v2/'
+  PETS_GENRE_ID = 10203
 
   # ZaimAPIへのアクセストークンを生成する
   #--------------------------------------------------------------------
@@ -18,8 +19,10 @@ class Zaim
     @access_token = OAuth::AccessToken.new(@consumer, ENV['ZAIM_API_OAUTH_TOKEN'], ENV['ZAIM_API_OAUTH_SECRET'])
   end
 
-  def get_verify
-    get("home/user/verify")
+  def getPetsPayments
+    url = "home/money?mode=payment&genre_id=#{PETS_GENRE_ID}"
+    response = get(url)
+    response and return response['money']
   end
 
   def get(url)
