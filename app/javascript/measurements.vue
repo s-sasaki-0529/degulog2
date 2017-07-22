@@ -7,11 +7,11 @@
     <li v-bind:class="{'active': selected_tab === 'history'}" v-on:click="changeTab('history')">
       <a>一覧</a>
     </li>
-    <li v-bind:class="{'active': selected_tab === 'form'}" v-on:click="changeTab('form')">
-      <a>新規登録</a>
-    </li>
     <li v-bind:class="{'active': selected_tab === 'graf'}" v-on:click="changeTab('graf')">
       <a>グラフ</a>
+    </li>
+    <li v-bind:class="{'active': selected_tab === 'form'}" v-on:click="changeTab('form')">
+      <a>新規登録</a>
     </li>
   </ul>
 
@@ -33,14 +33,14 @@
     </table>
   </div>
 
-  <!-- 体重記録編集フォーム -->
-  <div class="form" v-show="selected_tab === 'form'">
-    体重記録フォーム(仮)
-  </div>
-
   <!-- 体重遷移グラフ -->
   <div class="graf" v-show="selected_tab === 'graf'">
     <div id="graf"></div>
+  </div>
+
+  <!-- 体重記録編集フォーム -->
+  <div class="form" v-show="selected_tab === 'form'">
+    体重記録フォーム(仮)
   </div>
 
 </div>
@@ -53,7 +53,7 @@
   export default {
     data: function () {
       return {
-        selected_tab: 'graf',
+        selected_tab: 'history',
         degus:        [],
         measurements: [],
       };

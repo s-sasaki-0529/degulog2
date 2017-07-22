@@ -41,11 +41,24 @@
       },
     },
     computed: {
+      // 累計支出を取得
       totalAmount: function() {
         let total_amount = 0;
         this.boughts.forEach((b) => total_amount += b.amount);
         return total_amount;
-      }
+      },
+      // 月ごとの支出を取得
+      monthlyAmounts: function() {
+        let monthly_amounts = {};
+        this.boughts.forEach((b) => {
+          const month = b.date.split('-', 2).join('-');
+          if (! monthly_amounts[month]) {
+            monthly_amounts[month] = 0;
+          }
+          monthly_amounts[month] += b.amount;
+        });
+        return monthly_amounts;
+      },
     },
     created: function() {
       this.getBoughts();
