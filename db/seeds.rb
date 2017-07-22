@@ -160,3 +160,19 @@ Measurement.create(date: '2017/07/09').weights.create([
   {degu: sen,    value: 99},
   {degu: haku,   value: 85}
 ])
+Measurement.create(date: '2017/07/17').weights.create([
+  {degu: pazoo, value: 231},
+  {degu: may,   value: 267},
+  {degu: jiji,  value: 197},
+  {degu: tihiro, value: 129},
+  {degu: sen,    value: 109},
+  {degu: haku,   value: 110}
+])
+Measurement.create(date: '2017/07/21').weights.create([
+  {degu: pazoo, value: 232},
+  {degu: may,   value: 285},
+  {degu: jiji,  value: 200},
+  {degu: tihiro, value: 133},
+  {degu: sen,    value: 114},
+  {degu: haku,   value: 116}
+])
