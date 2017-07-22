@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  comment: MyString
+  place: MyString
+  date: 2017-07-22
+
+two:
+  amount: 1
+  comment: MyString
+  place: MyString
+  date: 2017-07-22
