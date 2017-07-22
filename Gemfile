@@ -58,3 +58,6 @@ gem 'active_model_serializers'
 gem 'slim-rails'
 
 gem 'oauth'
+
+gem "twitter_oauth"
+gem "get-twitter-oauth-token"
