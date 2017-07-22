@@ -5,7 +5,7 @@ class Bought < ApplicationRecord
     api_response = Zaim.new.getPetsPayments
     boughts = api_response.map do |r| 
       {
-        amount:  r['amount'],
+        amount:  r['amount'] * 2, # 折半分
         comment: r['comment'],
         place:   r['place'],
         date:    r['date'],
