@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :degus, only: [:index, :show, :create, :update, :destroy]
     resources :measurements, only: [:index, :create, :update, :destroy]
     resources :boughts, only: [:index]
+    resources :tweets, only: [:index]
   end
 end
