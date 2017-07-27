@@ -1,13 +1,45 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div class="container tweets">
+    <h1>ツイート一覧</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th class="date">日付</th>
+          <th class="tweet">ツイート</th>
+          <th class="like nowrap">いいね</th>
+          <th class="retweet nowrap">リツイート</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="tweet in tweets">
+          <td class="nowrap">{{ tweet.date }}</td>
+          <td>{{ tweet.text }}</td>
+          <td>{{ tweet.like_count }}</td>
+          <td>{{ tweet.retweet_count }}</td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
-  module.exports = {
-    data: function () {
+  import http from './common/http';
+  export default {
+    data: () => {
       return {
-        msg: 'Twitter',
+        tweets: [
+        ],
       }
+    },
+    methods: {
+      getTweets() {
+        http.getTweets((err, data) => {
+          this.tweets = data.body;
+        })
+      },
+    },
+    created: function() {
+      this.getTweets();
     },
   }
 </script>

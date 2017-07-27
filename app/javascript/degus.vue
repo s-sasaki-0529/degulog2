@@ -5,7 +5,7 @@
     <div class="image"><img src="https://pbs.twimg.com/media-preview/886201147979030528/IRzuha-N.jpg"></div>
     <div class="body">
       <h4 class="name">{{ degu.name }}</h4>
-      <table class="table">
+      <table class="table nowrap">
         <tbody>
           <tr>
             <th>性別</th>

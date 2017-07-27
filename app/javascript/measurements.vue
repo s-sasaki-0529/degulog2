@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <tr v-for="measurement in measurements">
-          <td class="measurement-date">{{ measurement.date }}</td>
+          <td class="measurement-date nowrap">{{ measurement.date }}</td>
           <td v-for="degu in degus">
             {{ measurement.weights[degu.id] }}
           </td>

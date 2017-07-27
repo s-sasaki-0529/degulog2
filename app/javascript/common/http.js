@@ -14,5 +14,13 @@ const http = {
   getBoughts(callback) {
     request.get(API_BASE + '/boughts').end(callback);
   },
+  // ツイート一覧を取得
+  getTweets(callback) {
+    request.get(API_BASE + '/tweets').end(callback);
+  },
+  // ツイート一覧を取得(最新)
+  getLatestTweets(callback) {
+    request.get(API/BASE + 'tweets').query({latest: true}).end(callback);
+  },
 };
 export default http;
