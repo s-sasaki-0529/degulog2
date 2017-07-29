@@ -4,10 +4,10 @@
     <table class="table table-hover pointer">
       <thead>
         <tr>
-          <th class="date" v-on:click="sort('datetime')">日付</th>
-          <th class="tweet" v-on:click="sort('text')">ツイート</th>
-          <th class="like nowrap" v-on:click="sort('like_count')">いいね</th>
-          <th class="retweet nowrap" v-on:click="sort('retweet_count')">リツイート</th>
+          <th class="date" v-bind:class="{sorted: sort_key === 'datetime'}"  v-on:click="sort('datetime')">日付</th>
+          <th class="tweet" v-bind:class="{sorted: sort_key === 'text'}" v-on:click="sort('text')">ツイート</th>
+          <th class="like nowrap" v-bind:class="{sorted: sort_key === 'like_count'}" v-on:click="sort('like_count')">いいね</th>
+          <th class="retweet nowrap" v-bind:class="{sorted: sort_key === 'retweet_count'}" v-on:click="sort('retweet_count')">リツイート</th>
         </tr>
       </thead>
       <tbody>
@@ -29,6 +29,7 @@
       return {
         tweets: [
         ],
+        sort_key: '',
       }
     },
     methods: {
@@ -46,6 +47,7 @@
       // ツイートの並び順を変更
       sort(key) {
         this.tweets = this.tweets.sort((a, b) => a[key] <= b[key] ? 1 : -1);
+        this.sort_key = key;
       }
     },
     created: function() {
