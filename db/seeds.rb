@@ -179,3 +179,11 @@ Measurement.create(date: '2017/07/21').weights.create([
   {degu: sen,    value: 114},
   {degu: haku,   value: 116}
 ])
+Measurement.create(date: '2017/07/29').weights.create([
+  {degu: pazoo, value: 224},
+  {degu: may,   value: 314},
+  {degu: jiji,  value: 196},
+  {degu: tihiro, value: 146},
+  {degu: sen,    value: 119},
+  {degu: haku,   value: 124}
+])
