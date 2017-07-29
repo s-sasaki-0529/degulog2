@@ -1,7 +1,7 @@
 <template>
   <div class="container tweets">
     <h1>ツイート一覧</h1>
-    <table class="table table-bordered">
+    <table class="table table-hover pointer">
       <thead>
         <tr>
           <th class="date">日付</th>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="tweet in tweets">
+        <tr v-for="tweet in tweets" v-on:click="move(tweet)">
           <td class="nowrap">{{ tweet.date }}</td>
           <td>{{ tweet.text }}</td>
           <td>{{ tweet.like_count }}</td>
@@ -36,6 +36,10 @@
         http.getTweets((err, data) => {
           this.tweets = data.body;
         })
+      },
+      move(tweet) {
+        const url = 'https://twitter.com/HousouP/status/' + tweet.origin_id;
+        window.open(url);
       },
     },
     created: function() {
