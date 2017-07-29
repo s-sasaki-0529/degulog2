@@ -4,7 +4,7 @@
     <table class="table table-hover pointer">
       <thead>
         <tr>
-          <th class="date" v-on:click="sort('date')">日付</th>
+          <th class="date" v-on:click="sort('datetime')">日付</th>
           <th class="tweet" v-on:click="sort('text')">ツイート</th>
           <th class="like nowrap" v-on:click="sort('like_count')">いいね</th>
           <th class="retweet nowrap" v-on:click="sort('retweet_count')">リツイート</th>

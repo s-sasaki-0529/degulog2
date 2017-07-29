@@ -1,5 +1,5 @@
 class TweetSerializer < ActiveModel::Serializer
-  attributes :origin_id, :text, :like_count, :retweet_count, :date
+  attributes :origin_id, :text, :like_count, :retweet_count, :datetime, :date
 
   def date
     object.datetime.to_date.to_s
