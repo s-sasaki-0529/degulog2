@@ -2,7 +2,7 @@
   <div class="container tweets">
     <h1>ツイート一覧</h1>
     <div class="synchronize-button">
-      <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="synchronize">
+      <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="getLatestTweets">
         {{ this.synchronizing ? '同期中' : '同期' }}
       </button>
     </div>
@@ -34,7 +34,7 @@
       return {
         tweets: [
         ],
-        sort_key: '',
+        sort_key: 'datetime',
         synchronizing: false,
       }
     },
@@ -43,11 +43,16 @@
       getTweets() {
         http.getTweets((err, data) => {
           this.tweets = data.body;
-        })
+        });
       },
       // APIからツイート一覧を取得(同期版)
-      synchronize() {
+      getLatestTweets() {
         this.synchronizing = true;
+        http.getLatestTweets((err, data) => {
+          this.tweets = data.body;
+          this.synchronizing = false;
+          this.sort_key = 'datetime';
+        });
       },
       // 対象の元ツイートを開く
       move(tweet) {

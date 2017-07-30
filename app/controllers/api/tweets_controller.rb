@@ -3,7 +3,8 @@ class Api::TweetsController < Api::ApplicationController
   # ツイートの一覧を取得
   #------------------------------------
   def index
-    render json: Tweet.all, each_serializer: TweetSerializer
+    params[:latest] and Tweet.synchronize
+    render json: Tweet.order(datetime: :desc), each_serializer: TweetSerializer
   end
 
 end
