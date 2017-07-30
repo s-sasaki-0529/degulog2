@@ -4,11 +4,7 @@ class Api::BoughtsController < Api::ApplicationController
   #------------------------------------
   def index
     params[:latest] and Bought.synchronize
-    if params[:monthly]
-      render json: Bought.monthly_amounts
-    else
-      render json: Bought.order(date: :desc)
-    end
+    render json: Bought.order(date: :desc)
   end
 
 end

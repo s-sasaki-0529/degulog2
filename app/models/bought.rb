@@ -17,13 +17,4 @@ class Bought < ApplicationRecord
     end
   end
 
-  # 月ごとの総支出を取得
-  def self.monthly_amounts
-    monthly = []
-    self.group("DATE_FORMAT(date, '%Y-%m')").sum(:amount).each do |key, val|
-      monthly.push month: key, amount: val
-    end
-    monthly.sort_by {|m| m[:month]}.reverse
-  end
-
 end
