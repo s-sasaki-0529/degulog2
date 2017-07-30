@@ -2,6 +2,9 @@
 
 <div class="container measurements">
 
+  <!-- ヘッダー -->
+  <h1>体重記録</h1>
+
   <!-- タブメニュー -->
   <ul class="nav nav-tabs nav-justified">
     <li v-bind:class="{'active': selected_tab === 'history'}" v-on:click="changeTab('history')">
