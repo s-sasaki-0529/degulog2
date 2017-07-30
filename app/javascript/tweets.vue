@@ -1,6 +1,11 @@
 <template>
   <div class="container tweets">
     <h1>ツイート一覧</h1>
+    <div class="synchronize-button">
+      <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="synchronize">
+        {{ this.synchronizing ? '同期中' : '同期' }}
+      </button>
+    </div>
     <table class="table table-hover pointer">
       <thead>
         <tr>
@@ -30,14 +35,19 @@
         tweets: [
         ],
         sort_key: '',
+        synchronizing: false,
       }
     },
     methods: {
-      // APIからツイート一覧を取得
+      // APIからツイート一覧を取得(キャッシュ版)
       getTweets() {
         http.getTweets((err, data) => {
           this.tweets = data.body;
         })
+      },
+      // APIからツイート一覧を取得(同期版)
+      synchronize() {
+        this.synchronizing = true;
       },
       // 対象の元ツイートを開く
       move(tweet) {
