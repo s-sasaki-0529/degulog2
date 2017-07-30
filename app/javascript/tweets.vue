@@ -1,7 +1,7 @@
 <template>
   <div class="container tweets">
     <h1>ツイート一覧</h1>
-    <div class="synchronize-button">
+    <div class="right">
       <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="getLatestTweets">
         {{ this.synchronizing ? '同期中' : '同期' }}
       </button>
