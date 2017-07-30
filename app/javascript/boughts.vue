@@ -43,7 +43,20 @@
 
     <!-- 月ごとの支出一覧 -->
     <div class="monthly" v-show="selected_tab === 'monthly'">
-      月ごと
+      <table class="table">
+        <thead>
+          <tr>
+            <th>年月</th>
+            <th>支出</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(amount, month) in monthlyAmounts">
+            <td>{{ month }}</td>
+            <td>{{ amount }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
