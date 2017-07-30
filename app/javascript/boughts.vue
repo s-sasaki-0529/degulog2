@@ -1,7 +1,10 @@
 <template>
   <div class="container boughts">
     <h1>デグー関連購入履歴</h1>
-    <div class="total">
+    <div class="right">
+      <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="getLatestBoughts">
+        {{ this.synchronizing ? '同期中' : '同期' }}
+      </button>
       <p>累計: {{ totalAmount }}円</p>
     </div>
     <table class="table table-bordered">
@@ -31,12 +34,22 @@
     data: function () {
       return {
         boughts: [],
+        synchronizing: false,
       }
     },
     methods: {
+      // 支出一覧を取得(キャシュ)
       getBoughts() {
         http.getBoughts((err, data) => {
           this.boughts = data.body;
+        });
+      },
+      // 支出一覧を取得(同期)
+      getLatestBoughts() {
+        this.synchronizing = true;
+        http.getLatestBoughts((err, data) => {
+          this.boughts = data.body;
+          this.synchronizing = false;
         });
       },
     },
@@ -46,18 +59,6 @@
         let total_amount = 0;
         this.boughts.forEach((b) => total_amount += b.amount);
         return total_amount;
-      },
-      // 月ごとの支出を取得
-      monthlyAmounts: function() {
-        let monthly_amounts = {};
-        this.boughts.forEach((b) => {
-          const month = b.date.split('-', 2).join('-');
-          if (! monthly_amounts[month]) {
-            monthly_amounts[month] = 0;
-          }
-          monthly_amounts[month] += b.amount;
-        });
-        return monthly_amounts;
       },
     },
     created: function() {

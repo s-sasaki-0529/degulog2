@@ -10,9 +10,13 @@ const http = {
   getMeasurements(callback) {
     request.get(API_BASE + '/measurements').end(callback);
   },
-  // 購入記録一覧を取得
+  // 購入記録一覧を取得(キャッシュ)
   getBoughts(callback) {
     request.get(API_BASE + '/boughts').end(callback);
+  },
+  // 購入記録一覧を取得(最新)
+  getLatestBoughts(callback) {
+    request.get(API_BASE + '/boughts').query({latest: true}).end(callback);
   },
   // ツイート一覧を取得(キャッシュ)
   getTweets(callback) {
