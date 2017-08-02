@@ -20,5 +20,5 @@
 *.swp
 
 /vendor
-
+.DS_Store
 app/assets/*
