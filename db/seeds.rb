@@ -6,18 +6,32 @@ Degu.create(name: 'キキ',   is_male: false, birthday: '2016/02/01', come_date:
 Degu.create(name: 'ハク',   is_male: true,  birthday: '2017/06/01', come_date: '2017/07/09')
 Degu.create(name: 'セン',   is_male: false, birthday: '2017/06/01', come_date: '2017/07/09')
 Degu.create(name: 'チヒロ', is_male: false, birthday: '2017/06/01', come_date: '2017/07/09')
+Degu.create(name: 'ハル',   is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'バロン', is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'ムタ',   is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'ルーン', is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'ユキ',   is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'トト',   is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
+Degu.create(name: 'ナトル', is_male: false, birthday: '2017/08/07', come_date: '2017/08/07')
 
 # 購入履歴をAPIから持ってくる
 Bought.synchronize
 
 # 体重の初期データを作成
-pazoo = Degu.find_by(name: 'パズー')
-may   = Degu.find_by(name: 'メイ')
-kiki  = Degu.find_by(name: 'キキ')
-jiji  = Degu.find_by(name: 'ジジ')
-haku  = Degu.find_by(name: 'ハク')
-sen   = Degu.find_by(name: 'セン')
-tihiro= Degu.find_by(name: 'チヒロ')
+pazoo  = Degu.find_by(name: 'パズー')
+may    = Degu.find_by(name: 'メイ')
+kiki   = Degu.find_by(name: 'キキ')
+jiji   = Degu.find_by(name: 'ジジ')
+haku   = Degu.find_by(name: 'ハク')
+sen    = Degu.find_by(name: 'セン')
+tihiro = Degu.find_by(name: 'チヒロ')
+haru   = Degu.find_by(name: 'ハル')
+baron  = Degu.find_by(name: 'バロン')
+muta   = Degu.find_by(name: 'ムタ')
+loon   = Degu.find_by(name: 'ルーン')
+yuki   = Degu.find_by(name: 'ユキ')
+toto   = Degu.find_by(name: 'トト')
+natoru = Degu.find_by(name: 'ナトル')
 
 Measurement.create(date: '2016/09/23').weights.create([
   {degu: pazoo, value: 217},
@@ -186,4 +200,19 @@ Measurement.create(date: '2017/07/29').weights.create([
   {degu: tihiro, value: 146},
   {degu: sen,    value: 119},
   {degu: haku,   value: 124}
+])
+Measurement.create(date: '2017/08/07').weights.create([
+  {degu: pazoo,  value: 220},
+  {degu: may,    value: 236},
+  {degu: jiji,   value: 193},
+  {degu: tihiro, value: 153},
+  {degu: sen,    value: 120},
+  {degu: haku,   value: 125},
+  {degu: haru,   value: 11},
+  {degu: baron,  value: 11},
+  {degu: toto,   value: 11},
+  {degu: loon,   value: 11},
+  {degu: yuki,   value: 11},
+  {degu: muta,   value: 11},
+  {degu: natoru, value: 11},
 ])
