@@ -14,16 +14,25 @@ class Twitter
     )
   end
 
-  def timeline
+  def timeline(limit = 200, opt = {})
+    p "^^^^^^^^^^^^^^^^^^^timeline #{limit}^^^^^^^^^^^^^^^^"
     params = {
       screen_name:     @@SCREEN_NAME,
-      count:           200,
+      count:           limit,
       trim_user:       true,
       exclude_replies: true,
       include_rts:     false,
-    }
-    tl = @twitter.user_timeline(params).select {|t| t['text'].index(@@KEY_WORD)}
-    tl.map {|t| parse(t)}
+    }.merge(opt)
+    tweets = @twitter.user_timeline(params)
+    degu_tweets = tweets.select {|t| t['text'].index(@@KEY_WORD)}.map {|t| parse(t)}
+
+    limit -= tweets.count
+    if tweets.count > 1 && limit > 0
+      max_id = tweets[-1]['id_str']
+      degu_tweets.concat self.timeline(limit, max_id: max_id)
+    else
+      return degu_tweets
+    end
   end
 
   private

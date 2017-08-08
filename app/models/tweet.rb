@@ -3,7 +3,8 @@ class Tweet < ApplicationRecord
 
   # TwitterAPIを用いて同期
   def self.synchronize
-    tl = Twitter.new.timeline
+    tl = Twitter.new.timeline(2000)
+    p tl.count
     self.transaction do
       tl.each do |t|
         self.find_or_initialize_by(origin_id: t[:origin_id]).update(t)
