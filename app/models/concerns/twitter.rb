@@ -5,17 +5,19 @@ class Twitter
   @@KEY_WORD    = '#デグー'
   @@SLEEP_TIME = 2
 
-  # initialize - インスタンスを生成する
+  # auth - TwitterAPIの認証を行う
   #---------------------------------------------------------------------
-  def initialize
+  def auth
     @twitter = TwitterOAuth::Client.new(
       :consumer_key    => ENV['TWITTER_API_KEY'],
       :consumer_secret => ENV['TWITTER_API_SECRET'],
     )
+  puts "Twitter APIの認証完了"
   end
 
   def timeline(limit = 200, opt = {})
-    p "^^^^^^^^^^^^^^^^^^^timeline #{limit}^^^^^^^^^^^^^^^^"
+    @twitter or self.auth
+    puts "^^^^^^^^^^^^^^^^^^^ツイートの取得 残り:#{limit}^^^^^^^^^^^^^^^^"
     params = {
       screen_name:     @@SCREEN_NAME,
       count:           limit,
