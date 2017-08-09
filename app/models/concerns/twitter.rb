@@ -1,8 +1,12 @@
 require 'twitter_oauth'
+require 'net/http'
+require 'uri'
+
 class Twitter
 
   @@SCREEN_NAME = 'housoup'
   @@KEY_WORD    = '#デグー'
+  @@URLBASE     = "https://twitter.com/HousouP/status/"
   @@SLEEP_TIME = 2
 
   # auth - TwitterAPIの認証を行う
@@ -35,6 +39,15 @@ class Twitter
     else
       return degu_tweets
     end
+  end
+
+  def get_pictures_url(tweet_origin_id)
+    uri = URI.parse(@@URLBASE + tweet_origin_id)
+    res = Net::HTTP.get_response(uri)
+    pictures = res.body.scan(/data-image-url="(.+)"$/).map {|i| i[0]}
+    puts "添付画像のURLを取得"
+    puts pictures
+    return pictures
   end
 
   private
