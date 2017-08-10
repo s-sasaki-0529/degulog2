@@ -10,7 +10,8 @@
       <thead>
         <tr>
           <th class="date" v-bind:class="{sorted: sort_key === 'datetime'}"  v-on:click="sort('datetime')">日付</th>
-          <th class="tweet" v-bind:class="{sorted: sort_key === 'text'}" v-on:click="sort('text')">ツイート</th>
+          <th class="tweet">ツイート</th>
+          <th class="picture">画像</th>
           <th class="like nowrap" v-bind:class="{sorted: sort_key === 'like_count'}" v-on:click="sort('like_count')">いいね</th>
           <th class="retweet nowrap" v-bind:class="{sorted: sort_key === 'retweet_count'}" v-on:click="sort('retweet_count')">リツイート</th>
         </tr>
@@ -19,6 +20,7 @@
         <tr v-for="tweet in tweets" v-on:click="move(tweet)">
           <td class="nowrap">{{ tweet.date }}</td>
           <td>{{ tweet.text }}</td>
+          <td><img class="picture" v-bind:src="tweet.pictures[0]"></td>
           <td>{{ tweet.like_count }}</td>
           <td>{{ tweet.retweet_count }}</td>
        </tr>
