@@ -1,5 +1,5 @@
 class Degu < ApplicationRecord
-  has_one :picture
+  belongs_to :picture
   has_many :weights
   has_many :measurements, through: :weights
 
