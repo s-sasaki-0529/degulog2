@@ -21,7 +21,7 @@
           </tr>
           <tr>
             <th>体重</th>
-            <td>{{ degu.weight }}g</td>
+            <td>{{ degu.current_weight }}g</td>
           </tr>
         </tbody>
       </table>
