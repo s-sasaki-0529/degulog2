@@ -28,10 +28,10 @@ class Twitter
       trim_user:       true,
       exclude_replies: true,
       include_rts:     false,
+      tweet_mode:      :extended
     }.merge(opt)
     tweets = @twitter.user_timeline(params)
-    degu_tweets = tweets.select {|t| t['text'].index(@@KEY_WORD)}.map {|t| parse(t)}
-
+    degu_tweets = tweets.select {|t| t['full_text'].index(@@KEY_WORD)}.map {|t| parse(t)}
     limit -= tweets.count
     if tweets.count > 1 && limit > 0
       max_id = tweets[-1]['id_str']
@@ -55,7 +55,7 @@ class Twitter
     def parse(tweet)
       {
         origin_id:     tweet['id'],
-        text:          tweet['text'].gsub("\n", '').gsub(/https:.+? *$/, ''),
+        text:          tweet['full_text'].gsub("\n", '').gsub(/https:.+? *$/, ''),
         like_count:    tweet['favorite_count'],
         retweet_count: tweet['retweet_count'],
         datetime:      tweet['created_at'],
