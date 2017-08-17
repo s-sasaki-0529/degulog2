@@ -2,7 +2,7 @@
 
 <div class="container degus">
   <div class="rows degu" v-for="degu in degus" v-bind:class="{'is-died': !degu.is_alive}">
-    <div class="image"><img class="picture" v-bind:src="degu.picture"></div>
+    <div class="image"><img class="picture" v-bind:src="degu.picture_url"></div>
     <div class="body">
       <h4 class="name">{{ degu.name }}</h4>
       <table class="table nowrap">

@@ -1,5 +1,4 @@
 class Degu < ApplicationRecord
-  has_one  :picture, foreign_key: :id
   has_many :weights
   has_many :measurements, through: :weights
   enum gender: { male: 0, female: 1, unknown: 2 }

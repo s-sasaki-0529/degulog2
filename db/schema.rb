@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817145019) do
+ActiveRecord::Schema.define(version: 20170817153545) do
 
   create_table "boughts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "amount"
@@ -28,10 +28,9 @@ ActiveRecord::Schema.define(version: 20170817145019) do
     t.date "come_date", null: false
     t.date "died_date"
     t.text "comment"
-    t.bigint "picture_id"
+    t.string "picture_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["picture_id"], name: "index_degus_on_picture_id"
   end
 
   create_table "measurements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

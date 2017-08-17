@@ -1,5 +1,5 @@
 class DeguSerializer < ActiveModel::Serializer
-  attributes :id, :name, :gender, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight, :picture
+  attributes :id, :name, :gender, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight, :picture_url
 
   # 生存中か
   def is_alive
@@ -34,8 +34,8 @@ class DeguSerializer < ActiveModel::Serializer
   end
 
   # 写真
-  def picture
-    object.picture ? object.picture.url : ''
+  def picture_url
+    object.picture_url ? object.picture_url : ''
   end
 
 end
