@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722081220) do
+ActiveRecord::Schema.define(version: 20170817145019) do
 
   create_table "boughts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "amount"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170722081220) do
 
   create_table "degus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
-    t.boolean "is_male", null: false
+    t.integer "gender", null: false
     t.date "birthday", null: false
     t.date "come_date", null: false
     t.date "died_date"

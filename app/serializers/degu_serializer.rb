@@ -1,5 +1,5 @@
 class DeguSerializer < ActiveModel::Serializer
-  attributes :id, :name, :sex, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight, :picture
+  attributes :id, :name, :gender, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight, :picture
 
   # 生存中か
   def is_alive
@@ -7,8 +7,12 @@ class DeguSerializer < ActiveModel::Serializer
   end
 
   # 性別
-  def sex
-    object.is_male ? 'オス' : 'メス'
+  def gender
+    {
+      'male'    => 'オス',
+      'female'  => 'メス',
+      'unknown' => '不明',
+    }[object.gender]
   end
 
   # 誕生日 日を省略
@@ -31,7 +35,7 @@ class DeguSerializer < ActiveModel::Serializer
 
   # 写真
   def picture
-    object.picture.url
+    object.picture ? object.picture.url : ''
   end
 
 end

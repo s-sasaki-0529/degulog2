@@ -9,7 +9,7 @@
         <tbody>
           <tr>
             <th>性別</th>
-            <td>{{ degu.sex }}</td>
+            <td>{{ degu.gender }}</td>
           </tr>
           <tr>
             <th>{{ degu.is_alive ? '年齢' : '享年' }}</th>
