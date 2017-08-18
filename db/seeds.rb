@@ -231,3 +231,18 @@ Measurement.create(date: '2017/08/12').weights.create([
   {degu: muta,   value: 14},
   {degu: natoru, value: 14},
 ])
+Measurement.create(date: '2017/08/12').weights.create([
+  {degu: pazoo,  value: 228},
+  {degu: may,    value: 230},
+  {degu: jiji,   value: 191},
+  {degu: tihiro, value: 174},
+  {degu: sen,    value: 134},
+  {degu: haku,   value: 149},
+  {degu: haru,   value: 20},
+  {degu: baron,  value: 20},
+  {degu: toto,   value: 20},
+  {degu: loon,   value: 20},
+  {degu: yuki,   value: 20},
+  {degu: muta,   value: 20},
+  {degu: natoru, value: 20},
+])
