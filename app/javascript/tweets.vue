@@ -5,6 +5,10 @@
       <button class="btn btn-primary" v-bind:disabled="synchronizing" v-on:click="getLatestTweets">
         {{ this.synchronizing ? '同期中' : '同期' }}
       </button>
+      <div>
+      いいね: {{ this.total_like_count }}
+      リツイート: {{ this.total_retweet_count }}
+      </div>
     </div>
     <table class="table table-hover pointer">
       <thead>
@@ -65,6 +69,18 @@
       sort(key) {
         this.tweets = this.tweets.sort((a, b) => a[key] <= b[key] ? 1 : -1);
         this.sort_key = key;
+      }
+    },
+    computed: {
+      total_like_count() {
+        let count = 0;
+        this.tweets.forEach((t) => count += t['like_count']);
+        return count;
+      },
+      total_retweet_count() {
+        let count = 0;
+        this.tweets.forEach((t) => count += t['retweet_count']);
+        return count;
       }
     },
     created: function() {
