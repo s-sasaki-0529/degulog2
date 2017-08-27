@@ -6,13 +6,13 @@ Degu.create(name: 'キキ',   gender: 'female',  birthday: '2016/02/01', come_da
 Degu.create(name: 'ハク',   gender: 'male',    birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DGDQbJ6UIAEEIX5.jpg')
 Degu.create(name: 'セン',   gender: 'female',  birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DEXSFe1UIAQ03Xa.jpg')
 Degu.create(name: 'チヒロ', gender: 'female',  birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DBtqxweV0AAAjHN.jpg')
-Degu.create(name: 'ハル',   gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'バロン', gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'ムタ',   gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'ルーン', gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'ユキ',   gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'トト',   gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
-Degu.create(name: 'ナトル', gender: 'unknown', birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DG1URKvUMAAfa-H.jpg')
+Degu.create(name: 'ハル',   gender: 'female',  birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPTfWqUQAA1VmT.jpg')
+Degu.create(name: 'バロン', gender: 'male',    birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPSaNcVAAoeaZX.jpg:large')
+Degu.create(name: 'ムタ',   gender: 'male',    birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPj6DsUQAAQYYc.jpg')
+Degu.create(name: 'ルーン', gender: 'female',  birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPR0IQUwAQp5lC.jpg')
+Degu.create(name: 'ユキ',   gender: 'female',  birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPSum0V4AE7x95.jpg')
+Degu.create(name: 'トト',   gender: 'female',  birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPUaMXVAAALhht.jpg')
+Degu.create(name: 'ナトル', gender: 'male',    birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPVQGHVoAAI1e-.jpg')
 
 # 購入履歴をAPIから持ってくる
 Bought.synchronize
@@ -231,7 +231,7 @@ Measurement.create(date: '2017/08/12').weights.create([
   {degu: muta,   value: 14},
   {degu: natoru, value: 14},
 ])
-Measurement.create(date: '2017/08/12').weights.create([
+Measurement.create(date: '2017/08/18').weights.create([
   {degu: pazoo,  value: 228},
   {degu: may,    value: 230},
   {degu: jiji,   value: 191},
@@ -253,11 +253,11 @@ Measurement.create(date: '2017/08/27').weights.create([
   {degu: tihiro, value: 174},
   {degu: sen,    value: 129},
   {degu: haku,   value: 154},
-  {degu: haru,   value: 20},
-  {degu: baron,  value: 20},
-  {degu: toto,   value: 20},
-  {degu: loon,   value: 20},
-  {degu: yuki,   value: 20},
-  {degu: muta,   value: 20},
-  {degu: natoru, value: 20},
+  {degu: haru,   value: 27},
+  {degu: baron,  value: 30},
+  {degu: toto,   value: 26},
+  {degu: loon,   value: 21},
+  {degu: yuki,   value: 28},
+  {degu: muta,   value: 28},
+  {degu: natoru, value: 25},
 ])
