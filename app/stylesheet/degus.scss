@@ -21,10 +21,13 @@
       width: 20%;
     }
     .image {
+      position: relative;
       height: 300px;
       img {
+        position: absolute;
         width: 100%;
         max-height: 300px;
+        bottom: 0px;
       }
     }
      }
