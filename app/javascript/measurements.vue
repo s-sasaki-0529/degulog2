@@ -45,17 +45,20 @@
   <form v-show="selected_tab === 'form'">
     <div class="form-group">
       <label class="col-form-label">日付</label>
-      <input type="text" name="date" class="form-control">
+      <input type="date" name="date" class="form-control" v-model="form.date">
     </div>
     <div class="row">
       <div class="form-group col-md-3 col-xs-12" v-for="degu in degus">
         <label>{{ degu.name }}</label>
-        <input name="'weight_' + degu.id'" type="number" class="form-control" v-bind:disabled="!degu.is_alive">
+        <input v-model="form.weights[degu.id]" type="number" class="form-control" v-bind:disabled="!degu.is_alive">
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary btn-block">登録</button>
+      <button class="btn btn-primary btn-block" @click="createMeasurements">登録</button>
     </div>
+    <pre>
+      {{ Object.keys(form.weights).map(function(degu_id) { return {degu_id: degu_id, value: form.weights[degu_id]} }) }}
+    </pre>
   </form>
 
 </div>
@@ -71,6 +74,10 @@
         selected_tab: 'history',
         degus:        [],
         measurements: [],
+        form: {
+          date: '',
+          weights: {},
+        },
       };
     },
     methods: {
@@ -121,6 +128,10 @@
           this.measurements = data.body;
         });
       },
+      // 体重記録一覧を新規登録
+      createMeasurements() {
+        alert(this.form.date);
+      }
     },
     created: function() {
       this.getDegus();
