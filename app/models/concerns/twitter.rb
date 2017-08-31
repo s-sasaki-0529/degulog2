@@ -9,8 +9,9 @@ class Twitter
   @@URLBASE     = "https://twitter.com/HousouP/status/"
   @@SLEEP_TIME = 2
 
-  # auth - TwitterAPIの認証を行う
-  #---------------------------------------------------------------------
+  #
+  # TwitterAPIの認証を行う
+  #
   def auth
     @twitter = TwitterOAuth::Client.new(
       :consumer_key    => ENV['TWITTER_API_KEY'],
@@ -19,6 +20,10 @@ class Twitter
   puts "Twitter APIの認証完了"
   end
 
+  #
+  # 自身のツイート一覧を再帰的に取得する
+  # 取得したツイートから、#デグーが含まれているもののみ抽出し、整形して戻す
+  #
   def timeline(limit = 200, opt = {})
     @twitter or self.auth
     puts "^^^^^^^^^^^^^^^^^^^ツイートの取得 残り:#{limit}^^^^^^^^^^^^^^^^"
@@ -41,6 +46,9 @@ class Twitter
     end
   end
 
+  #
+  # ツイートの元ページを参照し、レスポンス内に含まれる画像のURLを戻す
+  #
   def get_pictures_url(tweet_origin_id)
     uri = URI.parse(@@URLBASE + tweet_origin_id)
     res = Net::HTTP.get_response(uri)
@@ -52,6 +60,9 @@ class Twitter
 
   private
 
+    #
+    # TwitterAPIで取得したツイートを整形する
+    #
     def parse(tweet)
       {
         origin_id:     tweet['id'],

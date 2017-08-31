@@ -1,34 +1,18 @@
 class Api::DegusController < Api::ApplicationController
 
-  # デグーの一覧を取得
-  #------------------------------------
+  #
+  # 一覧
+  #
   def index
     order = params[:order] || 'id'
     render json: Degu.order(order)
   end
 
-  # デグーの詳細を取得
-  #------------------------------------
+  #
+  # 詳細
+  #
   def show
     render json: Degu.find(params['id'])
-  end
-
-  # デグーを新規作成
-  #------------------------------------
-  def create
-
-  end
-
-  # デグーを更新
-  #------------------------------------
-  def update
-
-  end
-
-  # デグーを削除
-  #------------------------------------
-  def destroy
-
   end
 
 end

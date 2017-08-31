@@ -6,8 +6,9 @@ class Zaim
   API_URL = 'https://api.zaim.net/v2/'
   PETS_GENRE_ID = 10203
 
+  #
   # ZaimAPIへのアクセストークンを生成する
-  #--------------------------------------------------------------------
+  #
   def initialize
     oauth_params = {
       site: "https://api.zaim.net",
@@ -19,19 +20,20 @@ class Zaim
     @access_token = OAuth::AccessToken.new(@consumer, ENV['ZAIM_API_OAUTH_TOKEN'], ENV['ZAIM_API_OAUTH_SECRET'])
   end
 
+  #
+  # ペット関連の支出一覧をzaimから取得
+  #
   def getPetsPayments
     url = "home/money?mode=payment&genre_id=#{PETS_GENRE_ID}"
     response = get(url)
     response and return response['money']
   end
 
+  #
+  # 指定したURLにリクエストを送信し、レスポンスをJSONデシリアライズ
+  #
   def get(url)
     response = @access_token.get("#{API_URL}#{url}")
-    JSON.parse(response.body)
-  end
-
-  def post(url , params = nil)
-    response = @access_token.post("#{API_URL}#{url}" , params)
     JSON.parse(response.body)
   end
 

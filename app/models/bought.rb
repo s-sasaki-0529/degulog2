@@ -1,6 +1,8 @@
 class Bought < ApplicationRecord
 
+  #
   # ZaimAPIを用いてテーブルを最新の状態にする
+  #
   def self.synchronize
     api_response = Zaim.new.getPetsPayments
     boughts = api_response.map do |r| 
