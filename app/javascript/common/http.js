@@ -10,6 +10,10 @@ const http = {
   getMeasurements(callback) {
     request.get(API_BASE + '/measurements').end(callback);
   },
+  // 体重記録を作成
+  createMeasurements(params, callback) {
+    request.post(API_BASE + '/measurements', params).end(callback);
+  },
   // 購入記録一覧を取得(キャッシュ)
   getBoughts(callback) {
     request.get(API_BASE + '/boughts').end(callback);

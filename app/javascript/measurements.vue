@@ -42,7 +42,7 @@
   </div>
 
   <!-- 体重記録編集フォーム -->
-  <form v-show="selected_tab === 'form'">
+  <div v-show="selected_tab === 'form'">
     <div class="form-group">
       <label class="col-form-label">日付</label>
       <input type="date" name="date" class="form-control" v-model="form.date">
@@ -56,10 +56,7 @@
     <div class="form-group">
       <button class="btn btn-primary btn-block" @click="createMeasurements">登録</button>
     </div>
-    <pre>
-      {{ Object.keys(form.weights).map(function(degu_id) { return {degu_id: degu_id, value: form.weights[degu_id]} }) }}
-    </pre>
-  </form>
+  </div>
 
 </div>
 
@@ -130,7 +127,14 @@
       },
       // 体重記録一覧を新規登録
       createMeasurements() {
-        alert(this.form.date);
+        const weights = Object.keys(this.form.weights).map((degu_id) => { return {degu_id: degu_id, value: this.form.weights[degu_id]} })
+        const params = {
+          date: this.form.date,
+          weights: weights,
+        }
+        http.createMeasurements(params, (result) => {
+          alert('登録しました');
+        });
       }
     },
     created: function() {
