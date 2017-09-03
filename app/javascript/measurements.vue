@@ -64,6 +64,7 @@
 
 <script>
   import http from './common/http';
+  import util from './common/util';
   import c3   from 'c3';
   export default {
     data: function () {
@@ -72,7 +73,7 @@
         degus:        [],
         measurements: [],
         form: {
-          date: '',
+          date: util.getTodayString(),
           weights: {},
         },
       };
