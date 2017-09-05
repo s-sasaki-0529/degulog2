@@ -47,6 +47,28 @@ class Twitter
   end
 
   #
+  # 検索ワードに合致するツイート一覧を取得
+  #
+  def search(limit = 200, opt = {})
+    @twitter or self.auth
+    params = {
+      lang:        'ja',
+      locale:      'ja',
+      result_type: 'mixed',
+      count:       limit,
+    }
+    tweets = @twitter.search(@@KEY_WORD, params)['statuses']
+    pictures = tweets.map do |t|
+      if media = t['entities']['media']
+        media.map {|m| m['media_url']}
+      else
+        []
+      end
+    end
+    pictures.flatten.uniq
+  end
+
+  #
   # ツイートの元ページを参照し、レスポンス内に含まれる画像のURLを戻す
   #
   def get_pictures_url(tweet_origin_id)
