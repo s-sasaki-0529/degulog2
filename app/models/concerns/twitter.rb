@@ -72,7 +72,7 @@ class Twitter
   end
 
   #
-  # ツイッター上のデグーの画像をまとめてダウンロードする
+  # ツイッター上の画像をまとめてダウンロードする
   #
   def download_pictures(word, download_dir, num = 10)
     pictures = self.search_pictures(word, num)
