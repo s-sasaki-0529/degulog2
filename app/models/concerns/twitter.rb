@@ -7,7 +7,7 @@ class Twitter
   @@SCREEN_NAME = 'housoup'
   @@KEY_WORD    = '#デグー'
   @@URLBASE     = "https://twitter.com/HousouP/status/"
-  @@SLEEP_TIME = 2
+  @@SLEEP_TIME = 1
 
   #
   # TwitterAPIの認証を行う
@@ -55,17 +55,24 @@ class Twitter
       lang:        'ja',
       locale:      'ja',
       result_type: 'mixed',
-      count:       num,
-    }
+      count:       200,
+    }.merge(opt)
+    puts "画像検索中(残り#{num}枚)"
+
     tweets = @twitter.search(word, params)['statuses']
+    max_id = tweets[-1]['id']
     pictures = extract_pictures_from_tweets(tweets)
-    puts "画像検索中(#{pictures.count}/#{num})"
-    return pictures
+
+    if num <= pictures.count
+      return pictures.take(num)
+    else
+      sleep @@SLEEP_TIME
+      return pictures.concat self.search_pictures(word, num - pictures.count, max_id: max_id)
+    end
   end
 
   #
   # ツイッター上のデグーの画像をまとめてダウンロードする
-  # 1枚につき1秒sleepするので時間がかかる
   #
   def download_pictures(word, download_dir, num = 10)
     pictures = self.search_pictures(word, num)
@@ -76,7 +83,7 @@ class Twitter
         puts "downloading(#{idx + 1}/#{pictures.count}): #{picture}"
         file.puts(Net::HTTP.get_response(URI.parse(picture)).body)
       end
-      sleep 1
+      sleep @@SLEEP_TIME
     end
   end
 
