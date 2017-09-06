@@ -49,15 +49,15 @@ class Twitter
   #
   # 検索ワードに合致するツイート一覧を取得
   #
-  def search(limit = 200, opt = {})
+  def search_pictures(word, num = 10, opt = {})
     @twitter or self.auth
     params = {
       lang:        'ja',
       locale:      'ja',
       result_type: 'mixed',
-      count:       limit,
+      count:       num,
     }
-    tweets = @twitter.search(@@KEY_WORD, params)['statuses']
+    tweets = @twitter.search(word, params)['statuses']
     pictures = tweets.map do |t|
       if media = t['entities']['media']
         media.map {|m| m['media_url']}
@@ -65,7 +65,26 @@ class Twitter
         []
       end
     end
-    pictures.flatten.uniq
+    pictures = pictures.flatten.uniq.take(num)
+    puts "画像検索中(#{pictures.count}/#{num})"
+    return pictures
+  end
+
+  #
+  # ツイッター上のデグーの画像をまとめてダウンロードする
+  # 1枚につき1秒sleepするので時間がかかる
+  #
+  def download_pictures(word, download_dir, num = 10)
+    pictures = self.search_pictures(word, num)
+    pictures.each_with_index do |picture, idx|
+      filename = File.basename(picture)
+      filepath = "#{download_dir}/#{filename}"
+      open(filepath, 'wb') do |file|
+        puts "downloading(#{idx + 1}/#{pictures.count}): #{picture}"
+        file.puts(Net::HTTP.get_response(URI.parse(picture)).body)
+      end
+      sleep 1
+    end
   end
 
   #
