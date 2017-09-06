@@ -58,14 +58,7 @@ class Twitter
       count:       num,
     }
     tweets = @twitter.search(word, params)['statuses']
-    pictures = tweets.map do |t|
-      if media = t['entities']['media']
-        media.map {|m| m['media_url']}
-      else
-        []
-      end
-    end
-    pictures = pictures.flatten.uniq.take(num)
+    pictures = extract_pictures_from_tweets(tweets)
     puts "画像検索中(#{pictures.count}/#{num})"
     return pictures
   end
@@ -112,6 +105,20 @@ class Twitter
         retweet_count: tweet['retweet_count'],
         datetime:      tweet['created_at'],
       }
+    end
+
+    #
+    # TwitterAPIで取得したツイート一覧からmedia情報を抜き取る
+    #
+    def extract_pictures_from_tweets(tweets)
+      pictures = tweets.map do |t|
+        if media = t['entities']['media']
+          media.map {|m| m['media_url']}
+        else
+          []
+        end
+      end
+      pictures.flatten.uniq
     end
 
 end
