@@ -133,8 +133,15 @@
           date: this.form.date,
           weights: weights,
         }
-        http.createMeasurements(params, (result) => {
-          alert('登録しました');
+        http.createMeasurements(params, (err, result) => {
+          if (err) {
+            alert('登録エラー');
+          } else {
+            this.measurements.unshift(result.body);
+            this.changeTab('history');
+            this.form.date = util.getTodayString();
+            this.form.weights = {};
+          }
         });
       }
     },

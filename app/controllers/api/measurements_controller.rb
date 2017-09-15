@@ -13,9 +13,10 @@ class Api::MeasurementsController < Api::ApplicationController
   # 関連するweightsもまとめて作成する
   #
   def create
-    @measurement = Measurement.create(measurement_params).weights.create(weights_params[:weights])
+    @measurement = Measurement.create(measurement_params)
     if @measurement
-      head :created
+      @measurement.weights.create(weights_params[:weights])
+      render json: @measurement
     end
   end
 
