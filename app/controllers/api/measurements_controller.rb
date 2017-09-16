@@ -11,6 +11,7 @@ class Api::MeasurementsController < Api::ApplicationController
   #
   # 体重測定記録を作成
   # 関連するweightsもまとめて作成する
+  # 既に同日のレコードがある場合、一度削除する
   #
   def create
     @measurement = Measurement.create(measurement_params)

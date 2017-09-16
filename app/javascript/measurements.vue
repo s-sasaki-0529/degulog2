@@ -137,10 +137,10 @@
           if (err) {
             alert('登録エラー');
           } else {
-            this.measurements.unshift(result.body);
             this.changeTab('history');
             this.form.date = util.getTodayString();
             this.form.weights = {};
+            this.getMeasurements();
           }
         });
       }
