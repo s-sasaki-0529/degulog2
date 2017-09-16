@@ -13,10 +13,17 @@ module.exports = {
   },
   module: {
     loaders: [
-      // .vueファイルを変換
+      // .vueファイル
       { test: /\.vue$/, loader: 'vue-loader' },
-      // scssファイルをcssに変換
+      // scssファイル
       { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' },
+      // cssファイル
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      // other
+      {
+        test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
+        loader: 'url-loader'
+      },
     ],
   },
   // vuejsを事前にコンパイル(?)

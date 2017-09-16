@@ -39,6 +39,14 @@
   <!-- 体重遷移グラフ -->
   <div class="graf" v-show="selected_tab === 'graf'">
     <div id="graf"></div>
+    <div class="block">
+      <el-slider
+        v-model="graf.span"
+        range
+        :max="measurements.length"
+      >
+      </el-slider>
+    </div>
   </div>
 
   <!-- 体重記録編集フォーム -->
@@ -72,6 +80,9 @@
         selected_tab: 'history',
         degus:        [],
         measurements: [],
+        graf: {
+          span: [0, 10],
+        },
         form: {
           date: util.getTodayString(),
           weights: {},
