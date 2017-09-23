@@ -5,7 +5,7 @@ class Api::MeasurementsController < Api::ApplicationController
   # 関連するweightsもまとめて返却する
   #
   def index
-    render json: Measurement.order(date: :desc)
+    render json: Measurement.order(date: :asc)
   end
 
   #

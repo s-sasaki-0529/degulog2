@@ -26,7 +26,7 @@
         <th v-for="degu in degus">{{ degu.name }}</th>
       </thead>
       <tbody>
-        <tr v-for="measurement in measurements">
+        <tr v-for="measurement in reversed_measurements">
           <td class="measurement-date nowrap">{{ measurement.date }}</td>
           <td v-for="degu in degus">
             {{ measurement.weights[degu.id] }}
@@ -39,11 +39,13 @@
   <!-- 体重遷移グラフ -->
   <div class="graf" v-show="selected_tab === 'graf'">
     <div id="graf"></div>
-    <div class="block">
+    <div class="block" v-if="0 < measurements.length">
       <el-slider
         v-model="graf.span"
         range
-        :max="measurements.length"
+        :min=0
+        :max="measurements.length - 1"
+        :format-tooltip="(n) => measurements[n] ? measurements[n].date : ''"
       >
       </el-slider>
     </div>
@@ -75,13 +77,17 @@
   import util from './common/util';
   import c3   from 'c3';
   export default {
+
+    //
+    // ステート
+    //
     data: function () {
       return {
         selected_tab: 'history',
         degus:        [],
         measurements: [],
         graf: {
-          span: [0, 10],
+          span: [0, 0],
         },
         form: {
           date: util.getTodayString(),
@@ -89,19 +95,40 @@
         },
       };
     },
+
+    //
+    // 算出プロパティ
+    //
+    computed: {
+
+      //
+      // 体重一覧を逆順で取得
+      //
+      reversed_measurements: function() {
+        return this.measurements.reverse();
+      }
+
+    },
+
     methods: {
+
+      //
       // タブを切り替える
+      //
       changeTab(new_tab) {
         this.selected_tab = new_tab;
       },
+
+      //
       // 体重遷移グラフを描画する
       // degusのidが連番であることが前提
+      //
       makeGraf() {
         let date = ['date'], degus = [];
         this.degus.forEach((degu) => {
           degus.push([degu.name]);
         });
-        this.measurements.forEach((m) => {
+        this.measurements.slice(this.graf.span[0], this.graf.span[1]).forEach((m) => {
           date.push(m.date);
           for (let i = 0; i < this.degus.length; i++) {
             degus[i].push(m.weights[String(i + 1)] || null);
@@ -125,19 +152,29 @@
           },
         });
       },
+
+      //
       // デグー一覧をAPIで取得
+      //
       getDegus() {
         http.getDegs((err, data) => {
           this.degus = data.body;
         });
       },
+
+      //
       // 体重記録一覧をAPIで取得
+      //
       getMeasurements() {
         http.getMeasurements((err, data) => {
           this.measurements = data.body;
+          this.graf.span    = [0, this.measurements.length - 1];
         });
       },
+
+      //
       // 体重記録一覧を新規登録
+      //
       createMeasurements() {
         const weights = Object.keys(this.form.weights).map((degu_id) => { return {degu_id: degu_id, value: this.form.weights[degu_id]} })
         const params = {
@@ -156,10 +193,19 @@
         });
       }
     },
+
+    //
+    // コンポーネント描画時に各種データをAPIから取得
+    //
     created: function() {
       this.getDegus();
       this.getMeasurements();
     },
+
+    //
+    // ステート更新ごとにグラフを再描画
+    // ToDO: 無駄では
+    //
     updated: function() {
       this.makeGraf();
     },
