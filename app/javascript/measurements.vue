@@ -49,10 +49,10 @@
       >
       </el-slider>
       <div class="row">
-        <div v-for="degu in degus" class="col-md-3 col-xs-12">
+        <div v-for="(degu, i) in degus" class="col-md-3 col-xs-12">
           <div class="checkbox">
             <label>
-              <input type="checkbox" />{{ degu.name }}
+              <input type="checkbox" v-model="graf.targets[i]"/>{{ degu.name }}
             </label>
           </div>
         </div>
@@ -97,6 +97,7 @@
         measurements: [],
         graf: {
           span: [0, 0],
+          targets: [],
         },
         form: {
           date: util.getTodayString(),
@@ -168,6 +169,7 @@
       getDegus() {
         http.getDegs((err, data) => {
           this.degus = data.body;
+          this.graf.targets = new Array(this.degus.length).fill(true);
         });
       },
 
