@@ -48,6 +48,15 @@
         :format-tooltip="(n) => measurements[n] ? measurements[n].date : ''"
       >
       </el-slider>
+      <div class="row">
+        <div v-for="degu in degus" class="col-md-3 col-xs-12">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" />{{ degu.name }}
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
