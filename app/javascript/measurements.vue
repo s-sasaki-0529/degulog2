@@ -26,7 +26,7 @@
         <th v-for="degu in degus">{{ degu.name }}</th>
       </thead>
       <tbody>
-        <tr v-for="measurement in reversed_measurements">
+        <tr v-for="measurement in reversed_measurements" v-on:click="showEditForm(measurement)">
           <td class="measurement-date nowrap">{{ measurement.date }}</td>
           <td v-for="degu in degus">
             {{ measurement.weights[degu.id] }}
@@ -204,7 +204,18 @@
             this.getMeasurements();
           }
         });
-      }
+      },
+
+      //
+      // 既存の体重記録の編集フォームを表示
+      //
+      showEditForm(measurement) {
+        this.form = {
+          date: measurement.date.replace(/\//g, "-"),
+          weights: Object.assign({}, measurement.weights),
+        };
+        this.changeTab('form');
+      },
     },
 
     //
