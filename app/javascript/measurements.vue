@@ -135,13 +135,15 @@
       //
       makeGraf() {
         let date = ['date'], degus = [];
-        this.degus.forEach((degu) => {
+        this.degus.forEach((degu, i) => {
           degus.push([degu.name]);
         });
         this.measurements.slice(this.graf.span[0], this.graf.span[1]).forEach((m) => {
           date.push(m.date);
           for (let i = 0; i < this.degus.length; i++) {
-            degus[i].push(m.weights[String(i + 1)] || null);
+            if (this.graf.targets[i]) {
+              degus[i].push(m.weights[String(i + 1)] || null);
+            }
           }
         });
         c3.generate({
