@@ -22,15 +22,15 @@ class DeguSerializer < ActiveModel::Serializer
 
   # 年齢(or享年)
   def age
-    date = is_alive ? Date.today : object.died_date
-    days = (date - object.birthday).to_i
+    days = (Date.today - object.birthday).to_i
     year = days / 356
     month = (days % 365) / 30
-    if is_alive
-      %(#{year}歳#{month}ヶ月)
-    else
-      %(#{year}歳#{month}ヶ月)
-    end
+    %(#{year}歳#{month}ヶ月)
+  end
+
+  # お別れ日
+  def died_date
+    object.died_date&.strftime('%Y年%m月%d日')
   end
 
   # 写真

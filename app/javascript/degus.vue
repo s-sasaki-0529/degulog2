@@ -12,8 +12,8 @@
             <td>{{ degu.gender }}</td>
           </tr>
           <tr>
-            <th>{{ degu.is_alive ? '年齢' : '享年' }}</th>
-            <td>{{ degu.age }}</td>
+            <th>{{ degu.is_alive ? '年齢' : 'お別れ' }}</th>
+            <td>{{ degu.is_alive ? degu.age : degu.died_date }}</td>
           </tr>
           <tr>
             <th>誕生日</th>
