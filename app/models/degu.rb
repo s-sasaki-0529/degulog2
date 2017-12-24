@@ -8,7 +8,11 @@ class Degu < ApplicationRecord
   # やり方が遠回しでやや重い
   #
   def current_weight
-    last_measurement_id = self.measurements.order(date: :desc).first.id
-    self.weights.find_by(measurement_id: last_measurement_id).value
+    last_measurement_id = self.measurements.order(date: :desc).first&.id
+    if last_measurement_id
+      self.weights.find_by(measurement_id: last_measurement_id)&.value
+    else
+      0
+    end
   end
 end
