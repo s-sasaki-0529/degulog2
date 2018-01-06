@@ -1,11 +1,14 @@
 # デグーの初期データを作成
 Degu.create(name: 'パズー', gender: 'male',    birthday: '2015/12/01', come_date: '2016/03/20', picture_url: 'https://pbs.twimg.com/media/Ct0F1uZUsAEvqAm.jpg')
 Degu.create(name: 'メイ',   gender: 'female',  birthday: '2016/02/01', come_date: '2016/05/07', picture_url: 'https://pbs.twimg.com/media/CuzjROnUMAAVrBn.jpg')
+
 Degu.create(name: 'ジジ',   gender: 'male',    birthday: '2016/09/01', come_date: '2017/05/03', picture_url: 'https://pbs.twimg.com/media/DFFzOumU0AAi-Ew.jpg')
 Degu.create(name: 'キキ',   gender: 'female',  birthday: '2016/02/01', come_date: '2017/05/03', picture_url: 'https://pbs.twimg.com/media/DA_cJOMUIAEtE8L.jpg', died_date: '2017/06/13')
+
 Degu.create(name: 'ハク',   gender: 'male',    birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DGDQbJ6UIAEEIX5.jpg')
 Degu.create(name: 'セン',   gender: 'female',  birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DEXSFe1UIAQ03Xa.jpg')
 Degu.create(name: 'チヒロ', gender: 'female',  birthday: '2017/06/01', come_date: '2017/07/09', picture_url: 'https://pbs.twimg.com/media/DBtqxweV0AAAjHN.jpg')
+
 Degu.create(name: 'ハル',   gender: 'female',  birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPTfWqUQAA1VmT.jpg')
 Degu.create(name: 'バロン', gender: 'male',    birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPSaNcVAAoeaZX.jpg:large')
 Degu.create(name: 'ムタ',   gender: 'male',    birthday: '2017/08/07', come_date: '2017/08/07', picture_url: 'https://pbs.twimg.com/media/DIPj6DsUQAAQYYc.jpg')
@@ -21,6 +24,13 @@ Degu.create(name: 'カルシファー', gender: 'male', birthday: '2017/11/16', 
 Degu.create(name: 'マルグル', gender: 'male', birthday: '2017/11/16', come_date: '2017/11/16', picture_url: 'https://pbs.twimg.com/media/DR02-ggV4AAK9Or.jpg')
 Degu.create(name: 'マーサ', gender: 'female', birthday: '2017/11/16', come_date: '2017/11/16', picture_url: 'https://pbs.twimg.com/media/DR02-gbVoAAi3ap.jpg')
 Degu.create(name: 'サリマン', gender: 'female', birthday: '2017/11/16', come_date: '2017/11/16', picture_url: 'https://pbs.twimg.com/media/DR02-hLUIAAeX_M.jpg')
+
+Degu.create(name: 'セイジ', gender: 'male', birthday: '2017/12/15', come_date: '2017/12/15')
+Degu.create(name: 'シズク', gender: 'female', birthday: '2017/12/15', come_date: '2017/12/15')
+Degu.create(name: 'シロウ', gender: 'male', birthday: '2017/12/15', come_date: '2017/12/15')
+Degu.create(name: 'シホ', gender: 'female', birthday: '2017/12/15', come_date: '2017/12/15')
+Degu.create(name: 'コウイチ', gender: 'male', birthday: '2017/12/15', come_date: '2017/12/15')
+Degu.create(name: 'コウジ', gender: 'male', birthday: '2017/12/15', come_date: '2017/12/15')
 
 # 購入履歴をAPIから持ってくる
 Bought.synchronize
