@@ -1,12 +1,11 @@
 RSpec.describe 'Degus', type: :request do
 
-  FactoryBot.create(:degu)
+  FactoryBot.create_list(:degu, 10)
 
   describe "GET /api/degus" do
     it '全件取得できる' do
       get api_degus_path
-      @json = JSON.parse(response.body)
-      p @json
+      expect(JSON.parse(response.body).count).to eq Degu.count
     end
   end
 
