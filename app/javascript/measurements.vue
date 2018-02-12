@@ -69,7 +69,7 @@
     <div class="row">
       <div class="form-group col-md-3 col-xs-12" v-for="degu in degus">
         <label>{{ degu.name }}</label>
-        <input v-model="form.weights[degu.id]" type="number" class="form-control" v-bind:disabled="!degu.is_alive">
+        <input v-model="form.weights[degu.id]" type="number" class="form-control" v-bind:disabled="!degu.is_valid">
       </div>
     </div>
     <div class="form-group">

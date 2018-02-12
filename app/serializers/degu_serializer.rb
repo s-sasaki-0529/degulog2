@@ -1,9 +1,9 @@
 class DeguSerializer < ActiveModel::Serializer
-  attributes :id, :name, :gender, :birthday, :come_date, :died_date, :is_alive, :age, :current_weight, :picture_url
+  attributes :id, :name, :gender, :birthday, :come_date, :leave_date, :is_valid, :age, :current_weight, :picture_url
 
-  # 生存中か
-  def is_alive
-    !object.died_date
+  # 有効か
+  def is_valid
+    !object.leave_date
   end
 
   # 性別
@@ -29,8 +29,8 @@ class DeguSerializer < ActiveModel::Serializer
   end
 
   # お別れ日
-  def died_date
-    object.died_date&.strftime('%Y年%m月%d日')
+  def leave_date
+    object.leave_date&.strftime('%Y年%m月%d日')
   end
 
   # 写真
