@@ -1,5 +1,7 @@
 RSpec.describe 'Degus', type: :request do
 
+  FactoryBot.create(:degu)
+
   describe "GET /api/degus" do
     it '全件取得できる' do
       get api_degus_path
