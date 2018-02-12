@@ -3,7 +3,7 @@ class DeguSerializer < ActiveModel::Serializer
 
   # 有効か
   def is_valid
-    !object.leave_date
+    object.leave_date.blank?
   end
 
   # 性別

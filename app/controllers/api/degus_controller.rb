@@ -4,8 +4,19 @@ class Api::DegusController < Api::ApplicationController
   # 一覧
   #
   def index
-    order = params[:order] || 'id'
-    render json: Degu.order(order)
+
+    degus = Degu.all
+
+    # 並び順を指定
+    degus = degus.order(params[:order]) if params[:order]
+
+    # 現在も有効なデグーのみに絞り込み
+    degus = degus.valid if params[:valid]
+
+    # 無効なデグーのみに絞り込み
+    degus = degus.invalid if params[:invalid]
+
+    render json: degus
   end
 
   #
