@@ -2,7 +2,8 @@
   "name": "degulog",
   "private": true,
   "scripts": {
-    "start": "nf start -j Procfile"
+    "start": "nf start -j Procfile",
+    "test": "bundle exec rspec -f d"
   },
   "dependencies": {
     "babel-core": "^6.25.0",
