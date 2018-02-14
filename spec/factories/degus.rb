@@ -12,6 +12,15 @@ FactoryBot.define do
     trait(:invalid) do
       leave_date Date.today
     end
+
+    trait(:weights) do
+      after(:create) do |degu|
+        Measurement.all.each do |m|
+          m.weights.create(degu: degu, value: Faker::Number.between(150, 300))
+        end
+      end
+    end
+
   end
 
 end
