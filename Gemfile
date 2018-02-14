@@ -22,6 +22,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'forgery'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 group :development do
   gem 'web-console', '>= 3.3.0'
