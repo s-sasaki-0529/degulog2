@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # API
   namespace :api, defaults: { format: :json } do
-    resources :degus, only: [:index, :show, :create, :update, :destroy]
-    resources :measurements, only: [:index, :create, :update, :destroy]
-    resources :boughts, only: [:index]
-    resources :tweets, only: [:index]
+    resources :degus, only: %i[index show]
+    resources :measurements, only: %i[index create]
+    resources :boughts, only: %i[index]
+    resources :tweets, only: %i[index]
   end
 end
