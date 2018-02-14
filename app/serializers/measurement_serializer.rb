@@ -1,5 +1,5 @@
 class MeasurementSerializer < ActiveModel::Serializer
-  attributes :date, :weights
+  attributes :id, :date, :weights
 
   #
   # 計測簿をフォーマットした文字列
