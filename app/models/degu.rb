@@ -1,5 +1,5 @@
 class Degu < ApplicationRecord
-  has_many :weights
+  has_many :weights, dependent: :destroy
   has_many :measurements, through: :weights
   enum gender: { male: 0, female: 1, unknown: 2 }
 

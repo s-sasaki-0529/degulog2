@@ -1,10 +1,8 @@
 class Api::DegusController < Api::ApplicationController
-
   #
   # 一覧
   #
   def index
-
     degus = Degu.all
 
     # 並び順を指定
@@ -25,5 +23,4 @@ class Api::DegusController < Api::ApplicationController
   def show
     render json: Degu.find(params['id'])
   end
-
 end

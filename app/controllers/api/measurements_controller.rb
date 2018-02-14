@@ -1,5 +1,4 @@
 class Api::MeasurementsController < Api::ApplicationController
-
   #
   # 体重測定の一覧を取得
   # 関連するweightsもまとめて返却する
@@ -15,10 +14,10 @@ class Api::MeasurementsController < Api::ApplicationController
   #
   def create
     @measurement = Measurement.create(measurement_params)
-    if @measurement
-      @measurement.weights.create(weights_params[:weights])
-      render json: @measurement
-    end
+    return unless @measurement
+
+    @measurement.weights.create(weights_params[:weights])
+    render json: @measurement
   end
 
   private
@@ -28,7 +27,6 @@ class Api::MeasurementsController < Api::ApplicationController
     end
 
     def weights_params
-      params.permit(weights: [:degu_id, :value])
+      params.permit(weights: %i[degu_id value])
     end
-
 end
