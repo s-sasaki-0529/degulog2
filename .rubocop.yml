@@ -1,0 +1,40 @@
+# Rubyのバージョンを指定
+AllCops:
+  TargetRubyVersion: 2.4
+
+# Railsモードで動作
+Rails:
+  Enabled: true
+
+# １メソッド最大２０行
+Metrics/MethodLength:
+  Max: 20
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# ドキュメントコメント無しを許容
+Style/Documentation:
+  Enabled: false
+
+# freezeしていない文字列リテラルを許可
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 冗長なselfを許可
+Style/RedundantSelf:
+  Enabled: false
+
+# クラス、モジュールの定義時にネストを使わないことを許容
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# private/protected は一段深くインデントする
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+
+# 数値を３桁ごとに_で繋がなくても良い
+Style/NumericLiterals:
+  Enabled: false
+
