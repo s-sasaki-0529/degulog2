@@ -33,12 +33,12 @@ RSpec.describe Degu, type: :model do
 
       context '体重記録が存在する場合' do
         before do
-          Measurement.create(date: '2017-01-01').weights.create(degu: degu, value: 150)
-          Measurement.create(date: '2017-03-01').weights.create(degu: degu, value: 160)
-          Measurement.create(date: '2017-02-01').weights.create(degu: degu, value: 140)
+          Measurement.create(date: '2017-01-01').weights.create(degu: degu, value: 140)
+          Measurement.create(date: '2017-03-01').weights.create(degu: degu, value: 150)
+          Measurement.create(date: '2017-02-01').weights.create(degu: degu, value: 160)
         end
         it '最新の体重が取得できる' do
-          expect(degu.current_weight).to eq 160
+          expect(degu.current_weight).to eq 150
         end
       end
       context '体重記録が存在しない場合' do
