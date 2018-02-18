@@ -64,7 +64,7 @@
   <div v-show="selected_tab === 'form'">
     <div class="form-group">
       <label class="col-form-label">日付</label>
-      <input type="date" name="date" class="form-control" v-model="form.date">
+      <el-date-picker v-model="form.date" />
     </div>
     <div class="row">
       <div class="form-group col-md-3 col-xs-12" v-for="degu in degus">
