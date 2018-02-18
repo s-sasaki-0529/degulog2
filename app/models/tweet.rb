@@ -6,10 +6,8 @@ class Tweet < ApplicationRecord
   #
   def self.synchronize
     tl = Twitter.new.timeline(2000)
-    p tl.count
     self.transaction do
       tl.each_with_index do |t, idx|
-        puts "Tweet/Pictureレコード登録 残り: #{tl.count - idx}"
         self.find_or_initialize_by(origin_id: t[:origin_id]).update(t)
         Tweet.find_by(origin_id: t[:origin_id]).scrape_pictures_url
       end
