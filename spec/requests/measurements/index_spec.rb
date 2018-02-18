@@ -1,5 +1,4 @@
-RSpec.describe 'Measurements', type: :request do
-
+RSpec.describe '/api/measurements/', type: :request do
   before do
     FactoryBot.create_list(:measurement, 5)
     FactoryBot.create_list(:degu, 3, :weights)
@@ -32,5 +31,4 @@ RSpec.describe 'Measurements', type: :request do
     end
 
   end
-
 end

@@ -1,4 +1,4 @@
-RSpec.describe 'Degus', type: :request do
+RSpec.describe '/api/degus', type: :request do
 
   before do
     FactoryBot.create_list(:measurement, 5)
