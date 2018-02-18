@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 
   #
   # TwitterAPIを用いて同期
@@ -7,7 +7,7 @@ class Tweet < ApplicationRecord
   def self.synchronize
     tl = Twitter.new.timeline(2000)
     self.transaction do
-      tl.each_with_index do |t, idx|
+      tl.each do |t|
         self.find_or_initialize_by(origin_id: t[:origin_id]).update(t)
         Tweet.find_by(origin_id: t[:origin_id]).__send__(:scrape_pictures_url)
       end
@@ -28,5 +28,4 @@ class Tweet < ApplicationRecord
         end
       end
     end
-
 end
