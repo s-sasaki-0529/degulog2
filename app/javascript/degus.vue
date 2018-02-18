@@ -2,30 +2,15 @@
 
 <div class="container degus">
   <div class="rows degu" v-for="degu in degus" v-bind:class="{'is-died': !degu.is_valid}">
-    <div class="image"><img class="picture" v-bind:src="degu.picture_url"></div>
-    <div class="body">
-      <h4 class="name">{{ degu.name }}</h4>
-      <table class="table nowrap">
-        <tbody>
-          <tr>
-            <th>性別</th>
-            <td>{{ degu.gender }}</td>
-          </tr>
-          <tr>
-            <th>{{ degu.is_valid ? '年齢' : 'お別れ' }}</th>
-            <td>{{ degu.is_valid ? degu.age : degu.leave_date }}</td>
-          </tr>
-          <tr>
-            <th>誕生日</th>
-            <td>{{ degu.birthday }}</td>
-          </tr>
-          <tr>
-            <th>体重</th>
-            <td>{{ degu.current_weight }}g</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+
+    <v-degu-card
+      :name="degu.name"
+      :isMale="degu.gender === 'オス'"
+      :birthday="degu.birthday"
+      :weight="degu.current_weight"
+      :image="degu.picture_url"
+    />
+
   </div>
 </div>
 
@@ -49,6 +34,9 @@
     },
     created: function() {
       this.getDegs();
+    },
+    components: {
+      VDeguCard: require('./components/VDeguCard.vue')
     },
   }
 </script>
