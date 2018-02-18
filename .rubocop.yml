@@ -38,3 +38,6 @@ Layout/IndentationConsistency:
 Style/NumericLiterals:
   Enabled: false
 
+# private/protectedメソッドのインデントを許可
+Style/IndentationConsistency:
+  Enabled: false
