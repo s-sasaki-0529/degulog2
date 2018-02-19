@@ -23,18 +23,15 @@
 
 <style lang="scss">
 .v-degu-card {
+  h1 {
+    font-size: 1.75em;
+  }
   .image-wrappter {
-    position: relative;
     height: 300px;
     img {
-      position: absolute;
-      max-height: 300px;
+      object-fit: contain;
       width: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
+      height: 100%;
     }
   }
 }
