@@ -172,6 +172,7 @@
         http.getDegs((err, data) => {
           this.degus = data.body;
           this.graf.targets = new Array(this.degus.length).fill(true);
+          this.degus.forEach((degu, idx) => this.graf.targets[idx] = degu.is_valid)
         });
       },
 
